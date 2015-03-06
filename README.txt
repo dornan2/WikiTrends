@@ -1,0 +1,1 @@
+This repo will store my final year project that identifies trending articles on Wikipedia.
