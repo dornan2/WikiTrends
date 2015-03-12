@@ -8,7 +8,7 @@ import glob
 import os
 import string
 
-#get file name
+"""#get file name
 now =  datetime.now()
 year = str(now.year)
 month = str("{:0>2d}".format(now.month))
@@ -19,7 +19,7 @@ url = "http://dumps.wikimedia.org/other/pagecounts-raw/" + year + "/" + year + "
 print ("Downloading file from " + url)
 
 file_name = "" + hour + '_' + day + '_' + month + '_' + year
-"""
+
 # download it
 print ("Downloading " + file_name + ".gz...")
 with urllib.request.urlopen(url) as response, open(file_name  + ".gz", 'wb') as out_file:
@@ -28,23 +28,23 @@ with urllib.request.urlopen(url) as response, open(file_name  + ".gz", 'wb') as 
 #extract it
 print("Extract .gz file")
 
-inF = gzip.open(file_name + ".gz", 'rb')
-outF = open('tempTextFile.txt', 'wb')
+inF = gzip.open("C:\\Users\\Adrian\\FYP\\" + file_name + ".gz", 'rb')
+outF = open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'wb')
 
 for line in inF:
    	outF.write(line)
 
 inF.close()
 outF.close()
-"""
+
 #clean it
 print("Cleaning file of unwanted data.")
 
-with io.open('C:\\Users\\Adrian\\Downloads\\tempTextFile.txt','r',encoding='utf-8') as infile, \
-     io.open('C:\\Users\\Adrian\\Downloads\\' + file_name + '.txt','w',encoding='utf-8') as outfile:
+with io.open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt','r',encoding='utf-8') as infile, \
+     io.open('C:\\Users\\Adrian\\FYP\\' + file_name + '.txt','w',encoding='utf-8') as outfile:
     for line in infile:
-       	if 	(	line.startswith(("EN ", "En ", "en ")) and 
-       			not line.startswith(("en Category:", "en File:", "en Special:", "en Talk:", "en Template:", "en User:", "en Wikipedia:", "en User_talk", "en Category_talk:", "en Search_search_", "en category:", "en en:")) and 
+       	if 	(	line.startswith(("EN ", "En ", "en ")) and
+       			not line.startswith(("en Category:", "en File:", "en Special:", "en Talk:", "en Template:", "en User:", "en Wikipedia:", "en User_talk", "en Category_talk:", "en Search_search_", "en category:", "en en:")) and
        			all(c in string.printable for c in line) and
        			len(line) < 120
        		):
@@ -53,5 +53,23 @@ with io.open('C:\\Users\\Adrian\\Downloads\\tempTextFile.txt','r',encoding='utf-
 
 print("Deleting old files...")
 
-#os.remove('C:\\Users\\Adrian\\Downloads\\tempTextFile.txt')
-#os.remove('C:\\Users\\Adrian\\Downloads\\' + file_name + ".gz")
+os.remove('C:\\Users\\Adrian\\FYP\\tempTextFile.txt')
+os.remove('C:\\Users\\Adrian\\FYP\\' + file_name + ".gz")
+
+"""
+
+# with io.open('C:\\Users\\Adrian\\FYP\\validityComplete.txt','r',encoding='utf-8') as infile, \
+#      io.open('C:\\Users\\Adrian\\FYP\\Valid.txt','w',encoding='utf-8') as outfile:
+#     for line in infile:
+#         if line.startswith("Valid "):
+#             outfile.write(line)
+#
+
+
+with io.open('C:\\Users\\Adrian\\FYP\\invalid.txt','r',encoding='utf-8') as infile1, \
+     io.open('C:\\Users\\Adrian\\FYP\\invalidTest.txt','w',encoding='utf-8') as outfile1:
+# with io.open('C:\\Users\\Adrian\\FYP\\Valid.txt','r',encoding='utf-8') as infile1, \
+#     io.open('C:\\Users\\Adrian\\FYP\\ValidTest.txt','w',encoding='utf-8') as outfile1:
+    for line in infile1:
+        if (int(line.split()[1]) > 6700 or int(line.split()[1])/ int(line.split()[3]) > 6700)and not ".mp3" in line.split()[2]:
+            outfile1.write(line)
