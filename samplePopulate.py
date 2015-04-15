@@ -1,22 +1,17 @@
 from __future__ import print_function
-from datetime import date, timedelta
-from pymongo import MongoClient
+from datetime import datetime, date, timedelta
 from math import sqrt
-import urllib
+import urllib.request
+import shutil
 import gzip
 import io
 import os
 import string
+from pymongo import MongoClient
 import pymongo
 
-__author__ = 'Adrian'
 
-# get file name
-# now = datetime.now()
-# year = str(now.year)[-2:]
-# # month = str("{:0>2d}".format(now.month))
-# # day = str("{:0>2d}".format(now.day))
-# # hour = str("{:0>2d}".format(now.hour -3))
+__author__ = 'Adrian'
 
 year = "15"
 month = "03"
@@ -24,8 +19,10 @@ day = "21"
 hour = "23"
 
 client = MongoClient('localhost', 27017)
-db = client.wiki_database
-collection = db.test
+db = client.test
+collection = db.article_documents
+top = db.top100
+
 
 days_views = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0}
 
@@ -44,36 +41,7 @@ yearly_views = {
     '12': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0}
 }
 
-# while int(hour) < 2:
-# url = "http://dumps.wikimedia.org/other/pagecounts-raw/" + year + "/" + year + "-" + month + "/pagecounts-" + year + month + day + "-" + hour + "0000.gz"
-# print("Downloading file from " + url)
-
-file_name = '' + str(hour) + '_' + str(day) + '_' + str(month) + '_' + year
-
-# download it
-print("Downloading " + file_name + ".gz...")
-# with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
-#     shutil.copyfileobj(response, out_file)
-
-#extract it
-print("Extract .gz file")
-#
-#     # inF = gzip.open("C:\\Users\\Adrian\\FYP\\" + file_name + ".gz", 'rb')
-#     inF = gzip.open('C:\\Users\\Adrian\\Downloads\wiki\\'+file_name+'.gz', 'rb')
-#     outF = open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'wb')
-#
-#     for line in inF:
-#         outF.write(line)
-#
-#     inF.close()
-#     outF.close()
-
-#clean it
-print("Updating the database...")
-num = 1
-
-#write check for empty article
-# with io.open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'r',encoding='utf-8') as infile:
+# write check for empty article
 with io.open('C:\\Users\\Adrian\\FYP\\sample1.txt', 'r',encoding='utf-8') as infile:
     for line in infile:
         if (line.startswith(("EN ", "En ", "en ")) and
@@ -83,16 +51,16 @@ with io.open('C:\\Users\\Adrian\\FYP\\sample1.txt', 'r',encoding='utf-8') as inf
                                         "en Talk:", "en Template:", "en User:", "en Wikipedia:", "en Wikipedia_talk:",
                                         "en User_talk", "en Category_talk:", "en Search_search_", "en category:", "en en:",
                                         "en  ", "en Main_Page")) and
-                 all(c in string.printable for c in line) and
-                 len(line) < 120 and
-                 int(line.split()[3])/int(line.split()[2]) > 6732 and
+                all(c in string.printable for c in line) and
+                len(line) < 120 and
+                int(line.split()[3])/int(line.split()[2]) > 6732 and
                 "." not in line.split()[1] and
-                int(line.split()[2]) >= 0
+                int(line.split()[2]) >= 5
         ):
             hits = int(line.split()[2])
-            article_Name = urllib.parse.unquote(line.split()[1] + ":" + str(year),encoding='utf-8')
+            article_Name = urllib.parse.unquote(line.split()[1] + ":" + str(year[-2:]), encoding='utf-8')
 
-            #if no document for this article is found creates a document for it
+            # if no document for this article is found creates a document for it
             if collection.find({"_id": article_Name}, {"_id": 1}).limit(1).count() < 1:
                 collection.insert(
                     {
@@ -106,8 +74,8 @@ with io.open('C:\\Users\\Adrian\\FYP\\sample1.txt', 'r',encoding='utf-8') as inf
                     }
                 )
 
-            #when it is a new month you need to find out what yesterdays date was
-            #if its a new day updates yearly views and resets day_total and daily views
+            # when it is a new month you need to find out what yesterdays date was
+            # if its a new day updates yearly views and resets day_total and daily views
             if hour == 0 and day > 1:
                 collection.update(
                     {'_id': article_Name},
@@ -119,7 +87,7 @@ with io.open('C:\\Users\\Adrian\\FYP\\sample1.txt', 'r',encoding='utf-8') as inf
                     True
                 )
             else:
-                #if it is a new day of a new month update yearly views and reset day_total,daily views and monthly total
+                # if it is a new day of a new month update yearly views and reset day_total,daily views and monthly total
                 if hour == 0 and day == 0:
                     collection.update(
                         {'_id': article_Name},
@@ -140,7 +108,7 @@ with io.open('C:\\Users\\Adrian\\FYP\\sample1.txt', 'r',encoding='utf-8') as inf
                 True
             )
 
-            #Calculates hourly Z Score for trend identification
+            # Calculates hourly Z Score for trend identification
             daySoFar = []
             for num in range(0, int(hour)+1):
                 daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
@@ -156,11 +124,13 @@ with io.open('C:\\Users\\Adrian\\FYP\\sample1.txt', 'r',encoding='utf-8') as inf
                 True
             )
 
-#update top100 table
-#daily update
+# update top100 table
+print("Updating of top 100 collection...")
+
+# daily update
 num = 1
-for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(5):
-    collection.update(
+for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(100):
+    top.update(
                 {'_id': 'top100:15'},
                 {'$set': {'daily100.'+str(num): {'name': doc['_id'], 'total': str(doc['day_total'])}}},
                 True
@@ -168,10 +138,10 @@ for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort(
     num += 1
 
 
-#monthly update
+# monthly update
 num = 1
-for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(5):
-    collection.update(
+for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
+    top.update(
                 {'_id': 'top100:15'},
                 {'$set': {'monthly100.'+str(num): {'name': doc['_id'], 'total': str(doc['month_total'])}}},
                 True
@@ -179,32 +149,29 @@ for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.D
     num += 1
 
 
-#yearly update
+# yearly update
 num = 1
-for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(5):
-    collection.update(
+for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
+    top.update(
                 {'_id': 'top100:15'},
                 {'$set': {'yearly100.'+str(num): {'name': doc['_id'], 'total': str(doc['year_total'])}}},
                 True
     )
     num += 1
 
-#trending update
+# trending update
 num = 1
-for doc in collection.find({}, {'zScore': 1}).sort('zScore', pymongo.DESCENDING).limit(5):
-    collection.update(
+for doc in collection.find({}, {'zScore': 1}).sort('zScore', pymongo.DESCENDING).limit(100):
+    top.update(
                 {'_id': 'top100:15'},
                 {'$set': {'Trending.'+str(num): {'name': doc['_id'],
                                                'total': str(doc['zScore'])}
                 }},
                 True
     )
-    print(str(num) + ". Article Name: " + doc['_id'] + "    Score: " + str(doc['zScore']))
     num += 1
 
 print("The database has been successfully updated")
 
-
-#clean talk files
+# clean talk files
 print("Deleting old files...")
-# os.remove('C:\\Users\\Adrian\\FYP\\tempTextFile.txt')
