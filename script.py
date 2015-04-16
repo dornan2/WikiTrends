@@ -154,36 +154,39 @@ with io.open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'r',encoding='utf-8') a
 print("Updating of top 100 collection...")
 
 # daily update
-num = 1
-for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'daily100.'+str(num): {'name': doc['_id'], 'total': str(doc['day_total'])}}},
-                True
-            )
-    num += 1
+if(hour%1 == 1):
+    num = 1
+    for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(100):
+        top.update(
+                    {'_id': 'top100:15'},
+                    {'$set': {'daily100.'+str(num): {'name': doc['_id'], 'total': str(doc['day_total'])}}},
+                    True
+                )
+        num += 1
 
 
 # monthly update
-num = 1
-for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'monthly100.'+str(num): {'name': doc['_id'], 'total': str(doc['month_total'])}}},
-                True
-            )
-    num += 1
+if(hour%4 == 0):
+    num = 1
+    for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
+        top.update(
+                    {'_id': 'top100:15'},
+                    {'$set': {'monthly100.'+str(num): {'name': doc['_id'], 'total': str(doc['month_total'])}}},
+                    True
+                )
+        num += 1
 
 
 # yearly update
-num = 1
-for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'yearly100.'+str(num): {'name': doc['_id'], 'total': str(doc['year_total'])}}},
-                True
-    )
-    num += 1
+if(day%2 == 0):
+    num = 1
+    for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
+        top.update(
+                    {'_id': 'top100:15'},
+                    {'$set': {'yearly100.'+str(num): {'name': doc['_id'], 'total': str(doc['year_total'])}}},
+                    True
+        )
+        num += 1
 
 # trending update
 num = 1
