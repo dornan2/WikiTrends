@@ -1,6 +1,8 @@
 from __future__ import print_function
 from datetime import datetime, date, timedelta
+from pymongo import MongoClient
 from math import sqrt
+import pymongo
 import urllib.request
 import shutil
 import gzip
@@ -9,14 +11,12 @@ import os
 import string
 
 # get file name
-from pymongo import MongoClient
-import pymongo
 
 now = datetime.now()
 year = str(now.year)
 month = str("{:0>2d}".format(now.month))
 day = str("{:0>2d}".format(now.day))
-hour = str("{:0>2d}".format(now.hour - 4))
+hour = str("{:0>2d}".format(now.hour - 5))
 
 url = "http://dumps.wikimedia.org/other/pagecounts-raw/" + year + "/" + year + "-" + month + "/pagecounts-" + year + month + day + "-" + hour + "0000.gz"
 print("Downloading file from " + url)
@@ -81,7 +81,7 @@ with io.open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'r',encoding='utf-8') a
                 len(line) < 120 and
                 int(line.split()[3])/int(line.split()[2]) > 6732 and
                 "." not in line.split()[1] and
-                int(line.split()[2]) >= 5
+                int(line.split()[2]) >= 10
         ):
             hits = int(line.split()[2])
             article_Name = urllib.parse.unquote(line.split()[1] + ":" + str(year[-2:]), encoding='utf-8')
@@ -154,7 +154,7 @@ with io.open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'r',encoding='utf-8') a
 print("Updating of top 100 collection...")
 
 # daily update
-if(hour%1 == 1):
+if int(hour) % 1 == 1:
     num = 1
     for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(100):
         top.update(
@@ -166,7 +166,7 @@ if(hour%1 == 1):
 
 
 # monthly update
-if(hour%4 == 0):
+if int(hour) % 4 == 0:
     num = 1
     for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
         top.update(
@@ -178,7 +178,7 @@ if(hour%4 == 0):
 
 
 # yearly update
-if(day%2 == 0):
+if int(day) % 2 == 0 & int(hour) == 1:
     num = 1
     for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
         top.update(
