@@ -10,8 +10,10 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-app.use(bodyParser.urlencoded({extened:true}));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 trendRouter = require('./Routes/trendRoutes')(Trend);
 

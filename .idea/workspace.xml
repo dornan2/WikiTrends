@@ -6,9 +6,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60c9ea7b-9018-4c8c-bc2c-fecd52e677eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/bytes/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/bytes/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/content-type/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/content-type/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/debug/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/debug/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/debug/node_modules/ms/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/debug/node_modules/ms/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/depd/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/depd/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/iconv-lite/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/iconv-lite/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/qs/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/qs/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/raw-body/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/raw-body/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/node_modules/media-typer/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/node_modules/media-typer/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/node_modules/mime-types/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/node_modules/mime-types/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/node_modules/mime-types/node_modules/mime-db/package.json" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/type-is/node_modules/mime-types/node_modules/mime-db/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/package.json" afterPath="$PROJECT_DIR$/node_modules/express/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/mime-types/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/mime-types/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/mime-types/node_modules/mime-db/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/mime-types/node_modules/mime-db/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/content-disposition/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/content-disposition/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/content-type/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/content-type/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/cookie-signature/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/cookie-signature/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/debug/node_modules/ms/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/debug/node_modules/ms/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/depd/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/depd/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/escape-html/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/escape-html/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/etag/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/etag/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/etag/node_modules/crc/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/etag/node_modules/crc/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/fresh/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/fresh/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/merge-descriptors/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/merge-descriptors/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/methods/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/methods/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/parseurl/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/parseurl/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/path-to-regexp/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/path-to-regexp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/forwarded/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/forwarded/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/destroy/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/destroy/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/mime/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/mime/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/node_modules/media-typer/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/node_modules/media-typer/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/node_modules/mime-types/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/node_modules/mime-types/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/node_modules/mime-types/node_modules/mime-db/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/node_modules/mime-types/node_modules/mime-db/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/utils-merge/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/utils-merge/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/vary/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/vary/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/hooks-fixed/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/hooks-fixed/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/kareem/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/kareem/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/node_modules/nan/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/node_modules/nan/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/kerberos/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/kerberos/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/kerberos/node_modules/nan/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/kerberos/node_modules/nan/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/rimraf/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/rimraf/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/node_modules/core-util-is/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/node_modules/core-util-is/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/node_modules/isarray/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/node_modules/isarray/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/node_modules/string_decoder/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/readable-stream/node_modules/string_decoder/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mpath/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mpath/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mpromise/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mpromise/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mquery/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mquery/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mquery/node_modules/debug/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mquery/node_modules/debug/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/ms/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/ms/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/muri/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/muri/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/regexp-clone/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/regexp-clone/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/sliced/package.json" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/sliced/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FYP.iws" />
@@ -36,21 +110,18 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="663">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <marker date="1429389663241" expanded="true" signature="0:784" placeholder="{&quot;name&quot;: &quot;WikiTrends&quot;...}" />
-                <marker date="1429389663241" expanded="true" signature="696:782" placeholder="{&quot;body-parser&quot;: &quot;^1.12.3&quot;...}" />
-              </folding>
+            <state vertical-scroll-proportion="-2.4230769" vertical-offset="107" max-vertical-offset="680">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="527">
-              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.74127907" vertical-offset="0" max-vertical-offset="561">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -66,10 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trendRoutes.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="trendRoutes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Routes/trendRoutes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9011628" vertical-offset="319" max-vertical-offset="850">
+            <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="850">
               <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
               <folding />
             </state>
@@ -123,8 +194,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/models/trendModel.js" />
         <option value="$PROJECT_DIR$/routes/trendRoutes.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/Routes/trendRoutes.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -189,7 +260,103 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Routes" />
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongoose" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongoose" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongoose" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiTrends" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongoose" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -403,11 +570,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32357723" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32288402" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40996784" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53291535" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -417,8 +584,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14220877" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31405565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4200627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31405565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4200627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -432,7 +599,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32357723" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32288402" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40996784" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -445,7 +612,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31405565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31405565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39863715" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -489,17 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="663">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <marker date="1429389663241" expanded="true" signature="0:784" placeholder="{&quot;name&quot;: &quot;WikiTrends&quot;...}" />
-            <marker date="1429389663241" expanded="true" signature="696:782" placeholder="{&quot;body-parser&quot;: &quot;^1.12.3&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/trendModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
@@ -508,18 +664,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/Routes/trendRoutes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="527">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="850">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routes/trendRoutes.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9011628" vertical-offset="319" max-vertical-offset="850">
-          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        <state vertical-scroll-proportion="-2.4230769" vertical-offset="107" max-vertical-offset="680">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74127907" vertical-offset="0" max-vertical-offset="561">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding />
         </state>
       </provider>
