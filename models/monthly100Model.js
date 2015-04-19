@@ -6,5 +6,5 @@ var monthly100Model = new Schema({
     total: {type: Number}
 });
 
-module.exports = mongoose.model('monthly100', monthly100Model);
+module.exports = mongoose.model('monthly', monthly100Model);
 

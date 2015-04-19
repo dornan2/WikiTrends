@@ -6,4 +6,4 @@ var yearly100Model = new Schema({
     total: {type: Number}
 });
 
-module.exports = mongoose.model('yearly100', yearly100Model);
+module.exports = mongoose.model('yearly', yearly100Model);

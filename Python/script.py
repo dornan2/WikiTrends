@@ -31,8 +31,8 @@ with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as o
 #extract it
 print("Extracting .gz file...")
 
-inF = gzip.open("C:\\Users\\Adrian\\FYP\\" + file_name + ".gz", 'rb')
-outF = open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'wb')
+inF = gzip.open("C:\\Users\\Adrian\\WikiTrends\\python\\" + file_name + ".gz", 'rb')
+outF = open('C:\\Users\\Adrian\\WikiTrends\\python\\tempTextFile.txt', 'wb')
 
 for line in inF:
     outF.write(line)
@@ -68,7 +68,7 @@ print("Cleaning file of unwanted data and populating database...")
 num = 1
 
 # write check for empty article
-with io.open('C:\\Users\\Adrian\\FYP\\tempTextFile.txt', 'r',encoding='utf-8') as infile:
+with io.open('C:\\Users\\Adrian\\WikiTrends\\python\\tempTextFile.txt', 'r',encoding='utf-8') as infile:
     for line in infile:
         if (line.startswith(("EN ", "En ", "en ")) and
                 not line.startswith(("en Category:", "en Wikipedia%3","Help:", "en Portal_talk:", "en Talk%3A", "en Template_talk",
@@ -157,11 +157,11 @@ print("Updating of top 100 collection...")
 if int(hour) % 1 == 1:
     num = 1
     for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(100):
-        top.update(
-                    {'_id': 'top100:15'},
-                    {'$set': {'daily100.'+str(num): {'name': doc['_id'], 'total': str(doc['day_total'])}}},
-                    True
-                )
+        db.daily.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': str(doc['day_total'])}},
+                True
+        )
         num += 1
 
 
@@ -169,11 +169,11 @@ if int(hour) % 1 == 1:
 if int(hour) % 4 == 0:
     num = 1
     for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
-        top.update(
-                    {'_id': 'top100:15'},
-                    {'$set': {'monthly100.'+str(num): {'name': doc['_id'], 'total': str(doc['month_total'])}}},
-                    True
-                )
+        db.monthly.update(
+                        {'_id': num},
+                        {'$set': {'name': doc['_id'], 'total': str(doc['month_total'])}},
+                        True
+        )
         num += 1
 
 
@@ -181,21 +181,19 @@ if int(hour) % 4 == 0:
 if int(day) % 2 == 0 & int(hour) == 1:
     num = 1
     for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
-        top.update(
-                    {'_id': 'top100:15'},
-                    {'$set': {'yearly100.'+str(num): {'name': doc['_id'], 'total': str(doc['year_total'])}}},
-                    True
+        db.yearly.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': str(doc['year_total'])}},
+                True
         )
         num += 1
 
 # trending update
 num = 1
 for doc in collection.find({}, {'zScore': 1}).sort('zScore', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'Trending.'+str(num): {'name': doc['_id'],
-                                               'total': str(doc['zScore'])}
-                }},
+    db.trending.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': str(doc['zScore'])}},
                 True
     )
     num += 1
@@ -205,5 +203,5 @@ print("The database has been successfully updated")
 # clean talk files
 print("Deleting old files...")
 
-os.remove('C:\\Users\\Adrian\\FYP\\tempTextFile.txt')
-os.remove('C:\\Users\\Adrian\\FYP\\' + file_name + ".gz")
+os.remove('C:\\Users\\Adrian\\WikiTrends\\python\\tempTextFile.txt')
+os.remove('C:\\Users\\Adrian\\WikiTrends\\python\\' + file_name + ".gz")

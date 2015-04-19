@@ -42,7 +42,7 @@ yearly_views = {
 }
 
 # write check for empty article
-with io.open('C:\\Users\\Adrian\\FYP\\sample1.txt', 'r',encoding='utf-8') as infile:
+with io.open('C:\\Users\\Adrian\\WikiTrends\\python\\sample1.txt', 'r',encoding='utf-8') as infile:
     for line in infile:
         if (line.startswith(("EN ", "En ", "en ")) and
                 not line.startswith(("en Category:", "en Wikipedia%3","Help:", "en Portal_talk:", "en Talk%3A", "en Template_talk",
@@ -130,9 +130,9 @@ print("Updating of top 100 collection...")
 # daily update
 num = 1
 for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'daily100.'+str(num): {'name': doc['_id'], 'total': str(doc['day_total'])}}},
+    db.daily.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': str(doc['day_total'])}},
                 True
             )
     num += 1
@@ -141,9 +141,9 @@ for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort(
 # monthly update
 num = 1
 for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'monthly100.'+str(num): {'name': doc['_id'], 'total': str(doc['month_total'])}}},
+    db.monthly.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': str(doc['month_total'])}},
                 True
             )
     num += 1
@@ -152,9 +152,9 @@ for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.D
 # yearly update
 num = 1
 for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'yearly100.'+str(num): {'name': doc['_id'], 'total': str(doc['year_total'])}}},
+    db.yearly.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': str(doc['year_total'])}},
                 True
     )
     num += 1
@@ -162,11 +162,9 @@ for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DES
 # trending update
 num = 1
 for doc in collection.find({}, {'zScore': 1}).sort('zScore', pymongo.DESCENDING).limit(100):
-    top.update(
-                {'_id': 'top100:15'},
-                {'$set': {'Trending.'+str(num): {'name': doc['_id'],
-                                               'total': str(doc['zScore'])}
-                }},
+    db.trending.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': str(doc['zScore'])}},
                 True
     )
     num += 1

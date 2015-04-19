@@ -6,5 +6,5 @@ var daily100Model = new Schema({
     total: {type: Number}
 });
 
-module.exports = mongoose.model('daily100', daily100Model);
+module.exports = mongoose.model('daily', daily100Model);
 

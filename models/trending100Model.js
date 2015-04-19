@@ -6,5 +6,5 @@ var trending100Model = new Schema({
     total: {type: Number}
 });
 
-module.exports = mongoose.model('trending100', trending100Model);
+module.exports = mongoose.model('trending', trending100Model);
 
