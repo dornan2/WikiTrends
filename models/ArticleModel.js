@@ -8,5 +8,5 @@ var ArticleModel = new Schema({
     year_total: {type: Number}
 });
 
-module.exports = mongoose.model('Article_documents', ArticleModel);
+module.exports = mongoose.model('article_document', ArticleModel);
 

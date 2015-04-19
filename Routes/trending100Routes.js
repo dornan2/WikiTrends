@@ -12,6 +12,15 @@ var routes = function(Trending100){
                     res.json(trending100);
             });
         });
+    trending100Router.route('/trending100/:position')
+        .get(function(req, res){
+            Trending100.findById(req.params.position, function(err, trending100){
+                if(err)
+                    res.status(500).send(err);
+                else
+                    res.json(trending100);
+            });
+        });
     return trending100Router;
 };
 

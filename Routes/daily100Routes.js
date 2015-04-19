@@ -14,7 +14,7 @@ var routes = function(Daily100){
         });
     daily100Router.route('/daily100/:position')
         .get(function(req, res){
-            Daily100.findById(req.params.trendId, function(err, daily100){
+            Daily100.findById(req.params.position, function(err, daily100){
                 if(err)
                     res.status(500).send(err);
                 else

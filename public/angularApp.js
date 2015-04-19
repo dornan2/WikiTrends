@@ -5,7 +5,7 @@ function mainController($scope, $http) {
     $scope.formData = {};
 
     // when landing on the page, get all todos and show them
-    $http.get('/api/articles')
+    $http.get('/api/trending100')
         .success(function(data) {
             $scope.todos = data;
             console.log(data);
