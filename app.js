@@ -55,8 +55,12 @@ app.use('/api', yearly100Router);
  * Application
  */
 
+//app.get('*', function(req, res) {
+//    res.sendfile('./public/index.html');
+//});
+
 app.get('*', function(req, res) {
-    res.sendfile('./public/index.html');
+    res.sendfile('./public/index.html'); // load our public/index.html file
 });
 
 
