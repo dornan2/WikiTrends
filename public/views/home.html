@@ -11,9 +11,9 @@
 
         <!-- LOOP OVER THE TODOS IN $scope.todos -->
         <div ng-repeat="trend in trends">
-            <label>
-                <h6> {{ trend._id }}. {{ trend.name }} Z Score: {{ trend.total }}</h6>
-            </label>
+            <span>
+				<a href="/articles/{{trend.name}}">{{ trend._id }}. {{ trend.name }} Z Score: {{ trend.total }}</a>
+			</span>
         </div>
 
     </div>

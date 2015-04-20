@@ -13,7 +13,13 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/nerds', {
             templateUrl: 'views/nerd.html',
             controller: 'MainController'
+        })
+
+        .when('/articles', {
+            templateUrl: 'views/article.html',
+            controller: 'ArticleController'
         });
+
 
     $locationProvider.html5Mode(true);
 

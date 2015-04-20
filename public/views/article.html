@@ -1,0 +1,14 @@
+<!-- public/views/nerd.html -->
+
+<div class="jumbotron text-center">
+    <h1>Individual article goes here.</h1>
+
+    <p>Coming Soon in {{ todos.name}}</p>
+</div>
+
+
+<div ng-repeat="article in articles">
+    <label>
+        <h6>The name of the article is: {{ article._id }}</h6>
+    </label>
+</div>
