@@ -13,9 +13,26 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                 });
         }
 
-        $scope.createTodo = function() {
-            console.log('rEkT M8');
-        }
+        var onUserComplete = function (response) {
+            $scope.user = response.data;
+            //$http.get($scope.user.repos_url)
+            //    .then(onRepos, onError);
+        };
+
+        //var onRepos = function(response){
+        //    $scope.repos = response.data;
+        //};
+        //
+        //var onError = function (reason) {
+        //    $scope.error = "Could not fetch user";
+        //};
+
+        $scope.search = function(username){
+            List.getData("api/articles/" + username)
+                .then(onUserComplete);
+        };
+
+
 
 
 
