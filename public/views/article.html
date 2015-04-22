@@ -18,3 +18,14 @@
 <h6>The month total of the article is: {{ article.month_total }}</h6>
 <h6>The year total of the article is: {{ article.year_total }}</h6>
 <h6>The zScore of the article is: {{ article.zScore }}</h6>
+<h6>The daily views of the article is: {{ article.daily_views }}</h6>
+<h6>The yearly views of the article is: {{ article.yearly_views }}</h6>
+
+
+
+<div class="row">
+    <highchart id="chart1" config="chartConfig"></highchart>
+</div>
+
+<!--<highchart class="chart" config="chartConfig" class="span9" ></highchart>-->
+<nvd3 options="options" data="data"></nvd3>

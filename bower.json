@@ -23,6 +23,7 @@
     "bootstrap": "latest",
     "font-awesome": "latest",
     "animate.css": "latest",
-    "angular-nvd3": "~0.1.1"
+    "angular-nvd3": "~0.1.1",
+    "highcharts-ng": "~0.0.8"
   }
 }

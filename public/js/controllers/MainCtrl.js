@@ -1,5 +1,5 @@
 // public/js/controllers/MainCtrl.js
-angular.module('MainCtrl', []).controller('MainController', function($scope,List) {
+angular.module('MainCtrl', []).controller('MainController', function($scope,List,$window) {
 
         getList('api/trending100/');
 
@@ -15,8 +15,13 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
 
         var onUserComplete = function (response) {
             $scope.user = response.data;
-            //$http.get($scope.user.repos_url)
-            //    .then(onRepos, onError);
+
+            if(response.data == null )
+                alert("Page does not exist");
+            else
+                $window.location.href = '/articles/'+$scope.user._id;
+
+            console.log($scope.user);
         };
 
         //var onRepos = function(response){
