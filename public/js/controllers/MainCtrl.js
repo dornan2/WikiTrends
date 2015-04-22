@@ -34,7 +34,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
 
     $scope.options = {
 
-
         chart: {
             type: 'stackedAreaChart',
             height: 450,
@@ -44,6 +43,8 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                 bottom: 60,
                 left: 40
             },
+            //x: function(d){return d[0];},
+            //y: function(d){return d[1];},
             x: function(d){return d[0];},
             y: function(d){return d[1];},
             useVoronoi: false,
@@ -58,30 +59,50 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
             },
             yAxis: {
                 tickFormat: function(d){
-                    return d3.format('.2f')(d);
+                    return d3.format('')(d);
                 }
             }
         }
     };
 
+
+    var list = {1: 2, 2: 4, 3: 3, 4: 6, 5: 7, 6: 5,
+        7: 4,
+        8: 3,
+        9: 4,
+        10: 6,
+        11: 8,
+        12: 9,
+        13: 8,
+        14: 7,
+        15: 6,
+        16: 5,
+        17: 4,
+        18: 32,
+        19: 1,
+        20: 7,
+        21: 4,
+        22: 3,
+        23: 4,
+        24: 6,
+        25: 8,
+        26: 5,
+        27: 3, 28: 8, 29: 6, 30: 3, 31: 4
+    }, arr = [];
+
+    for (var key in list) {
+        arr.push([key, list[key]]);
+    }
+
+
+
     $scope.data = [
         {
             "key" : "howaya" ,
-            "values" : [ {'1': 3, '3': 4,'31': 6} ],
-            "values" : [['1', 3], ['3', 4],['31', 6]]
+            //"values" : [ {'1': 3, '3': 4,'31': 6} ],
+            "values" : arr
         }
 
     ]
-
-
-
-
-
-
-
-
-
-
-
 
 });

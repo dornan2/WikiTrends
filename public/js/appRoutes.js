@@ -2,7 +2,6 @@
 angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider
-
         // home page
         .when('/', {
             templateUrl: 'views/home.html',
@@ -15,9 +14,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'MainController'
         })
 
-        .when('/articles', {
+        //.when('/articles', {
+        //    templateUrl: 'views/article.html',
+        //    controller: 'ArticleController'
+        //})
+
+        .when('/articles/:articleNAM/', {
             templateUrl: 'views/article.html',
             controller: 'ArticleController'
+        })
+        .otherwise({
+            redirectTo: '/'
         });
 
 

@@ -1,9 +1,9 @@
 <!-- public/views/nerd.html -->
 
 <div class="jumbotron text-center">
-    <h1>Individual article goes here.</h1>
+    <h1>{{ article._id }}</h1>
 
-    <p>Coming Soon in {{ todos.name}}</p>
+    <p></p>
 </div>
 
 
@@ -12,3 +12,9 @@
         <h6>The name of the article is: {{ article._id }}</h6>
     </label>
 </div>
+
+<h6>The name of the article is: {{ article._id }}</h6>
+<h6>The day total of the article is: {{ article.day_total }}</h6>
+<h6>The month total of the article is: {{ article.month_total }}</h6>
+<h6>The year total of the article is: {{ article.year_total }}</h6>
+<h6>The zScore of the article is: {{ article.zScore }}</h6>
