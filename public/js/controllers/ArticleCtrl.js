@@ -13,11 +13,7 @@ angular.module('ArticleCtrl', []).controller('ArticleController', function($scop
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
     }
-
-
-
-
-
+    
     $scope.options = {
         chart: {
             type: 'lineWithFocusChart',
