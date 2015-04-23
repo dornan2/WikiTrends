@@ -16,7 +16,7 @@ now = datetime.now()
 year = str(now.year)
 month = str("{:0>2d}".format(now.month))
 day = str("{:0>2d}".format(now.day))
-hour = str("{:0>2d}".format(now.hour - 5))
+hour = str("{:0>2d}".format(now.hour - 24))
 
 url = "http://dumps.wikimedia.org/other/pagecounts-raw/" + year + "/" + year + "-" + month + "/pagecounts-" + year + month + day + "-" + hour + "0000.gz"
 print("Downloading file from " + url)
@@ -31,8 +31,8 @@ with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as o
 #extract it
 print("Extracting .gz file...")
 
-inF = gzip.open("C:\\Users\\Adrian\\WikiTrends\\python\\" + file_name + ".gz", 'rb')
-outF = open('C:\\Users\\Adrian\\WikiTrends\\python\\tempTextFile.txt', 'wb')
+inF = gzip.open("" + file_name + ".gz", 'rb')
+outF = open('tempTextFile.txt', 'wb')
 
 for line in inF:
     outF.write(line)
@@ -81,7 +81,7 @@ with io.open('C:\\Users\\Adrian\\WikiTrends\\python\\tempTextFile.txt', 'r',enco
                 len(line) < 120 and
                 int(line.split()[3])/int(line.split()[2]) > 6732 and
                 "." not in line.split()[1] and
-                int(line.split()[2]) >= 10
+                int(line.split()[2]) >= 3
         ):
             hits = int(line.split()[2])
             article_Name = urllib.parse.unquote(line.split()[1], encoding='utf-8')
@@ -203,5 +203,5 @@ print("The database has been successfully updated")
 # clean talk files
 print("Deleting old files...")
 
-os.remove('C:\\Users\\Adrian\\WikiTrends\\python\\tempTextFile.txt')
-os.remove('C:\\Users\\Adrian\\WikiTrends\\python\\' + file_name + ".gz")
+os.remove('tempTextFile.txt')
+os.remove('' + file_name + ".gz")
