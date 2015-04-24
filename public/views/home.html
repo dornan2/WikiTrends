@@ -5,19 +5,35 @@
     <h1>Wiki<span class="label label-info">Trends</span></h1>
 </div>
 
-<!-- TODO LIST -->
-<div id="todo-list" class="row">
-    <div class="col-sm-4 col-sm-offset-4">
 
-        <!-- LOOP OVER THE TODOS IN $scope.todos -->
-        <div ng-repeat="trend in trends">
+<div class="row">
+    <div class="col-md-4">
+        <h1><span class="label label-default">Daily Popularity</span></h1>
+        <div ng-repeat="dailyRank in dailyList | limitTo:10">
             <span>
-				<a href="/articles/{{trend.name}}">{{ trend._id }}. {{ trend.name }} Z Score: {{ trend.total }}</a>
+				<a href="/articles/{{dailyRank.name}}">{{ dailyRank._id }}. {{ dailyRank.name }}</a>
 			</span>
         </div>
-
+    </div>
+    <div class="col-md-4">
+        <h1><span class="label label-default">Monthly Popularity</span></h1>
+        <div ng-repeat="monthlyRank in MonthlyList | limitTo:10">
+            <span>
+				<a href="/articles/{{monthlyRank.name}}">{{ monthlyRank._id }}. {{ monthlyRank.name }}</a>
+			</span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h1><span class="label label-default">Yearly Popularity</span></h1>
+        <div ng-repeat="yearlyRank in YearlyList | limitTo:10">
+            <span>
+				<a href="/articles/{{yearlyRank.name}}">{{ yearlyRank._id }}. {{ yearlyRank.name }}</a>
+			</span>
+        </div>
     </div>
 </div>
+
+
 
 <!-- FORM TO CREATE TODOS -->
 <div id="todo-form" class="row">
@@ -35,10 +51,18 @@
     </div>
 </div>
 
-<h2> {{ user._id }} </h2>
-
-
 <nvd3 options="options" data="data"></nvd3>
 
+<!-- TODO LIST -->
+<div id="todo-list" class="row">
+    <div class="col-sm-4 col-sm-offset-4">
 
-<h2> DID IT WORK? {{ user._id }} </h2>
+        <!-- LOOP OVER THE TODOS IN $scope.todos -->
+        <div ng-repeat="trend in trends | limitTo:10">
+            <span>
+				<a href="/articles/{{trend.name}}">{{ trend._id }}. {{ trend.name }} Z Score: {{ trend.total }}</a>
+			</span>
+        </div>
+
+    </div>
+</div>

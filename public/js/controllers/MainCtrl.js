@@ -1,41 +1,81 @@
 // public/js/controllers/MainCtrl.js
 angular.module('MainCtrl', []).controller('MainController', function($scope,List,$window) {
 
-        getList('api/trending100/');
+    getTrendsList('api/trending100/');
+    getDailyList('api/daily100/');
+    getMonthlyList('api/monthly100/');
+    getYearlyList('api/yearly100/');
 
-        function getList(apiURL) {
-            List.getData(apiURL)
-                .success(function (custs) {
-                    $scope.trends = custs;
-                })
-                .error(function (error) {
-                    $scope.status = 'Unable to load customer data: ' + error.message;
-                });
-        }
+    $scope.trends;
+    $scope.dailyList;
+    $scope.MonthlyList;
+    $scope.YearlyList;
 
-        var onUserComplete = function (response) {
-            $scope.user = response.data;
 
-            if(response.data == null )
-                alert("Page does not exist");
-            else
-                $window.location.href = '/articles/'+$scope.user._id;
+    function getTrendsList(apiURL) {
+        List.getData(apiURL)
+            .success(function (custs) {
+                $scope.trends = custs;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+    }
 
-            console.log($scope.user);
-        };
+    function getDailyList(apiURL) {
+        List.getData(apiURL)
+            .success(function (custs) {
+                $scope.dailyList = custs;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+    }
 
-        //var onRepos = function(response){
-        //    $scope.repos = response.data;
-        //};
-        //
-        //var onError = function (reason) {
-        //    $scope.error = "Could not fetch user";
-        //};
+    function getMonthlyList(apiURL) {
+        List.getData(apiURL)
+            .success(function (custs) {
+                $scope.MonthlyList = custs;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+    }
 
-        $scope.search = function(username){
-            List.getData("api/articles/" + username)
-                .then(onUserComplete);
-        };
+
+    function getYearlyList(apiURL) {
+        List.getData(apiURL)
+            .success(function (custs) {
+                $scope.YearlyList = custs;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+    }
+
+    var onUserComplete = function (response) {
+        $scope.user = response.data;
+
+        if(response.data == null )
+            alert("Page does not exist");
+        else
+            $window.location.href = '/articles/'+$scope.user._id;
+
+        console.log($scope.user);
+    };
+
+    //var onRepos = function(response){
+    //    $scope.repos = response.data;
+    //};
+    //
+    //var onError = function (reason) {
+    //    $scope.error = "Could not fetch user";
+    //};
+
+    $scope.search = function(username){
+        List.getData("api/articles/" + username)
+            .then(onUserComplete);
+    };
 
     $scope.options = {
 

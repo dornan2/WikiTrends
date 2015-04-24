@@ -152,21 +152,19 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
                     True
                 )
 
-            counter += 1
-            print(str(counter))
-
 # update top100 table
 print("Updating of top 100 collection...")
 
 # daily update
 if int(hour) % 1 == 1:
     num = 1
-    for doc in collection.find({'day_total': {'$gt': 10 }}, {'day_total': 1 }).sort('day_total', pymongo.DESCENDING).limit(100):
+    for doc in collection.find({'day_total': {'$gt': 250}}, {'day_total': 1}).sort('day_total', pymongo.DESCENDING).limit(100):
         db.daily100.update(
                 {'_id': num},
                 {'$set': {'name': doc['_id'], 'total': str(doc['day_total'])}},
                 True
             )
+        num += 1
 
 # monthly update
 if int(hour) % 4 == 0:
