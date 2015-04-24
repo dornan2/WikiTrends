@@ -16,7 +16,7 @@ now = datetime.now()
 year = str(now.year)
 month = str("{:0>2d}".format(now.month))
 day = str("{:0>2d}".format(now.day))
-hour = str("{:0>2d}".format(now.hour - 24))
+hour = str("{:0>2d}".format(now.hour - 14))
 
 url = "http://dumps.wikimedia.org/other/pagecounts-raw/" + year + "/" + year + "-" + month + "/pagecounts-" + year + month + day + "-" + hour + "0000.gz"
 print("Downloading file from " + url)
