@@ -14,7 +14,7 @@ var app      = express();
  * Configuration
  */
 
-var db = mongoose.connect('mongodb://localhost/test');
+var db = mongoose.connect('mongodb://localhost/wiki_database');
 
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));                                         // log every request to the console
