@@ -68,7 +68,7 @@ print("Cleaning file of unwanted data and populating database...")
 num = 1
 
 # write check for empty article
-with io.open('C:\\Users\\Adrian\\WikiTrends\\python\\tempTextFile.txt', 'r',encoding='utf-8') as infile:
+with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
     for line in infile:
         if (line.startswith(("EN ", "En ", "en ")) and
                 not line.startswith(("en Category:", "en Wikipedia%3","Help:", "en Portal_talk:", "en Talk%3A", "en Template_talk",
