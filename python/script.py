@@ -81,7 +81,7 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
                 len(line) < 120 and
                 int(line.split()[3])/int(line.split()[2]) > 6732 and
                 "." not in line.split()[1] and
-                int(line.split()[2]) >= 5
+                int(line.split()[2]) >= 3
         ):
             hits = int(line.split()[2])
             article_Name = urllib.parse.unquote(line.split()[1], encoding='utf-8')
