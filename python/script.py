@@ -207,4 +207,4 @@ print("The database has been successfully updated")
 print("Deleting old files...")
 
 os.remove('tempTextFile.txt')
-os.remove('' + file_name + ".gz")
+os.remove(file_name + ".gz")
