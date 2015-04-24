@@ -23,22 +23,22 @@ print("Downloading file from " + url)
 
 file_name = "" + hour + '_' + day + '_' + month + '_' + year
 
-# # download it
-# print("Downloading " + file_name + ".gz...")
-# with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
-#     shutil.copyfileobj(response, out_file)
-#
-# #extract it
-# print("Extracting .gz file...")
-#
-# inF = gzip.open("" + file_name + ".gz", 'rb')
-# outF = open('tempTextFile.txt', 'wb')
-#
-# for line in inF:
-#     outF.write(line)
-#
-# inF.close()
-# outF.close()
+# download it
+print("Downloading " + file_name + ".gz...")
+with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
+    shutil.copyfileobj(response, out_file)
+
+#extract it
+print("Extracting .gz file...")
+
+inF = gzip.open("" + file_name + ".gz", 'rb')
+outF = open('tempTextFile.txt', 'wb')
+
+for line in inF:
+    outF.write(line)
+
+inF.close()
+outF.close()
 
 client = MongoClient('localhost', 27017)
 db = client.wiki_database
