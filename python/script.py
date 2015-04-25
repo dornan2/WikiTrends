@@ -156,7 +156,7 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
 print("Updating of top 100 collection...")
 
 # daily update
-if int(hour) % 1 == 1:
+if True:
     num = 1
     for doc in collection.find({'day_total': {'$gt': 250}}, {'day_total': 1}).sort('day_total', pymongo.DESCENDING).limit(100):
         db.daily100.update(
@@ -167,7 +167,7 @@ if int(hour) % 1 == 1:
         num += 1
 
 # monthly update
-if int(hour) % 4 == 0:
+if True:
     num = 1
     for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
         db.monthly100.update(
@@ -179,7 +179,7 @@ if int(hour) % 4 == 0:
 
 
 # yearly update
-if int(day) % 2 == 0 & int(hour) == 1:
+if True:
     num = 1
     for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
         db.yearly100.update(
