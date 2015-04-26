@@ -27,7 +27,6 @@ file_name = "" + hour + '_' + day + '_' + month + '_' + year
 month = month.lstrip("0")
 day = day.lstrip("0")
 
-hour = "00"
 
 if hour == "00":
     hour = "0"
