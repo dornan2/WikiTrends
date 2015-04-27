@@ -23,32 +23,33 @@ print("Downloading file from " + url)
 
 file_name = "" + hour + '_' + day + '_' + month + '_' + year
 
-
 month = month.lstrip("0")
 day = day.lstrip("0")
-
 
 if hour == "00":
     hour = "0"
 else:
     hour = hour.lstrip("0")
 
-# # download it
-# print("Downloading " + file_name + ".gz...")
-# with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
-#     shutil.copyfileobj(response, out_file)
-#
-# #extract it
-# print("Extracting .gz file...")
-#
-# inF = gzip.open("" + file_name + ".gz", 'rb')
-# outF = open('tempTextFile.txt', 'wb')
-#
-# for line in inF:
-#     outF.write(line)
-#
-# inF.close()
-# outF.close()
+hour = "0"
+
+
+# download it
+print("Downloading " + file_name + ".gz...")
+with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
+    shutil.copyfileobj(response, out_file)
+
+#extract it
+print("Extracting .gz file...")
+
+inF = gzip.open("" + file_name + ".gz", 'rb')
+outF = open('tempTextFile.txt', 'wb')
+
+for line in inF:
+    outF.write(line)
+
+inF.close()
+outF.close()
 
 client = MongoClient('localhost', 27017)
 db = client.wiki_database
@@ -112,24 +113,25 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
 
             # when it is a new month you need to find out what yesterdays date was
             # if its a new day updates yearly views and resets day_total and daily views
-            if hour == 0 and day > 2:
+            #start of a new day reset day total and update new yearly
+            if hour == "0" and day != "1":
                 collection.update(
                     {'_id': article_Name},
                     {'$set': {
                         'yearly_views.'+str(month)+"."+str(int(day)-1): collection.find_one({"_id": article_Name})['day_total'],
-                        'day_total': 0,  "daily_views": days_views
+                        'day_total': 0
                         }
                     },
                     True
                 )
             else:
-                # if it is a new day of a new month update yearly views and reset day_total,daily views and monthly total
-                if hour == 0 and day == 1:
+                # if it is a new day of a new month update yearly views and reset day_total and monthly total
+                if hour == "0" and day == "1":
                     collection.update(
                         {'_id': article_Name},
                         {'$set': {
                             'yearly_views.'+str(int(month)-1)+"."+str((date.today() - timedelta(1)).strftime('%d')): collection.find_one({"_id": article_Name})['day_total'],
-                            'day_total': 0, 'month_total': 0, "daily_views": days_views
+                            'day_total': 0, 'month_total': 0
                             }
                         },
                         True
@@ -145,7 +147,7 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
             )
 
             # Calculates hourly Z Score for trend identification
-            if hits > 100:
+            if hits > 20:
                 daySoFar = []
                 for num in range(0, int(hour)+1):
                     daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
@@ -214,5 +216,5 @@ print("The database has been successfully updated")
 # clean talk files
 print("Deleting old files...")
 
-# os.remove('tempTextFile.txt')
-# os.remove(file_name + ".gz")
+os.remove('tempTextFile.txt')
+os.remove(file_name + ".gz")
