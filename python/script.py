@@ -31,9 +31,6 @@ if hour == "00":
 else:
     hour = hour.lstrip("0")
 
-hour = "0"
-
-
 # download it
 print("Downloading " + file_name + ".gz...")
 with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
