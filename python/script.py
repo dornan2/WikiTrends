@@ -116,7 +116,8 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
                     {'_id': article_Name},
                     {'$set': {
                         'yearly_views.'+str(month)+"."+str(int(day)-1): collection.find_one({"_id": article_Name})['day_total'],
-                        'day_total': 0
+                        'day_total': 0,
+                        'daily_views': days_views
                         }
                     },
                     True
@@ -128,7 +129,7 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
                         {'_id': article_Name},
                         {'$set': {
                             'yearly_views.'+str(int(month)-1)+"."+str((date.today() - timedelta(1)).strftime('%d')): collection.find_one({"_id": article_Name})['day_total'],
-                            'day_total': 0, 'month_total': 0
+                            'day_total': 0, 'month_total': 0, 'daily_views': days_views
                             }
                         },
                         True
@@ -138,7 +139,7 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
             collection.update(
                 {'_id': article_Name},
                 {'$set': {'daily_views.' + str(hour): hits},
-                 '$inc': {'day_total': hits, 'month_total': hits, 'year_total': hits}
+                 '$inc': {'day_total': hits, 'month_total': hits, 'year_total': hits, }
                 },
                 True
             )
