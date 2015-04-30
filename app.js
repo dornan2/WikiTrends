@@ -8,7 +8,7 @@ var express  = require('express'),
     bodyParser = require('body-parser'),                // pull information from HTML POST (express4)
     methodOverride = require('method-override');        // simulate DELETE and PUT (express4)
 
-var app      = express();
+var app = express();
 
 /**
  * Configuration
@@ -55,14 +55,10 @@ app.use('/api', yearly100Router);
  * Application
  */
 
-//app.get('*', function(req, res) {
-//    res.sendfile('./public/index.html');
-//});
 
 app.get('*', function(req, res) {
     res.sendFile('./public/index.html'); // load our public/index.html file
 
-    //res.sendFile("index.html", {"root": __dirname});
 
 });
 

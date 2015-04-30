@@ -23,6 +23,7 @@ print("Downloading file from " + url)
 
 file_name = "" + hour + '_' + day + '_' + month + '_' + year
 
+# remove any leading 0's
 month = month.lstrip("0")
 day = day.lstrip("0")
 
@@ -110,7 +111,7 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
 
             # when it is a new month you need to find out what yesterdays date was
             # if its a new day updates yearly views and resets day_total and daily views
-            #start of a new day reset day total and update new yearly
+            # start of a new day reset day total and update new yearly
             if hour == "0" and day != "1":
                 collection.update(
                     {'_id': article_Name},
@@ -166,38 +167,35 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
 print("Updating of top 100 collection...")
 
 # daily update
-if True:
-    num = 1
-    for doc in collection.find({'day_total': {'$gt': 250}}, {'day_total': 1}).sort('day_total', pymongo.DESCENDING).limit(100):
-        db.daily100.update(
-                {'_id': num},
-                {'$set': {'name': doc['_id'], 'total': str(doc['day_total'])}},
-                True
-            )
-        num += 1
+num = 1
+for doc in collection.find({'day_total': {'$gt': 250}}, {'day_total': 1}).sort('day_total', pymongo.DESCENDING).limit(100):
+    db.daily100.update(
+            {'_id': num},
+            {'$set': {'name': doc['_id'], 'total': str(doc['day_total'])}},
+            True
+    )
+    num += 1
 
 # monthly update
-if True:
-    num = 1
-    for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
-        db.monthly100.update(
-                {'_id': num},
-                {'$set': {'name': doc['_id'], 'total': str(doc['month_total'])}},
-                True
-        )
-        num += 1
+num = 1
+for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
+    db.monthly100.update(
+            {'_id': num},
+            {'$set': {'name': doc['_id'], 'total': str(doc['month_total'])}},
+            True
+    )
+    num += 1
 
 
 # yearly update
-if True:
-    num = 1
-    for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
-        db.yearly100.update(
-                    {'_id': num},
-                    {'$set': {'name': doc['_id'], 'total': str(doc['year_total'])}},
-                    True
-        )
-        num += 1
+num = 1
+for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
+    db.yearly100.update(
+            {'_id': num},
+            {'$set': {'name': doc['_id'], 'total': str(doc['year_total'])}},
+            True
+    )
+    num += 1
 
 # trending update
 num = 1
