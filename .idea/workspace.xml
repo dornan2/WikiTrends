@@ -6,83 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60c9ea7b-9018-4c8c-bc2c-fecd52e677eb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/.bower.json" afterPath="$PROJECT_DIR$/public/vendor/angular/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular-resource/.bower.json" afterPath="$PROJECT_DIR$/public/vendor/angular-resource/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular-route/.bower.json" afterPath="$PROJECT_DIR$/public/vendor/angular-route/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/jquery/.bower.json" afterPath="$PROJECT_DIR$/public/vendor/jquery/.bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.bowerrc" afterPath="$PROJECT_DIR$/.bowerrc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/ArticleCtrl.js" afterPath="$PROJECT_DIR$/public/js/controllers/ArticleCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/ArticleModel.js" afterPath="$PROJECT_DIR$/models/ArticleModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python/Estimation.py" afterPath="$PROJECT_DIR$/python/Estimation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/FYP_node_modules.xml" afterPath="$PROJECT_DIR$/.idea/libraries/FYP_node_modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/LICENSE" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/raw-body/LICENSE" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/raw-body/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/LICENSE" afterPath="$PROJECT_DIR$/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/LICENSE" afterPath="$PROJECT_DIR$/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/highcharts-ng/LICENSE" afterPath="$PROJECT_DIR$/public/vendor/highcharts-ng/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/services/ListService.js" afterPath="$PROJECT_DIR$/public/js/services/ListService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/MainCtrl.js" afterPath="$PROJECT_DIR$/public/js/controllers/MainCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/README.md" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/README.md" afterPath="$PROJECT_DIR$/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/README.md" afterPath="$PROJECT_DIR$/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/README.md" afterPath="$PROJECT_DIR$/public/vendor/angular/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/angular-csp.css" afterPath="$PROJECT_DIR$/public/vendor/angular/angular-csp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/angular.js" afterPath="$PROJECT_DIR$/public/vendor/angular/angular.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/angular.min.js.map" afterPath="$PROJECT_DIR$/public/vendor/angular/angular.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/angular.min.js" afterPath="$PROJECT_DIR$/public/vendor/angular/angular.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/angularApp.js" afterPath="$PROJECT_DIR$/public/js/angularApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/appRoutes.js" afterPath="$PROJECT_DIR$/public/js/appRoutes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/article.html" afterPath="$PROJECT_DIR$/public/views/article.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/articleRoutes.js" afterPath="$PROJECT_DIR$/routes/articleRoutes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/bower.json" afterPath="$PROJECT_DIR$/public/vendor/angular/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/ext/bson.cc" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/ext/bson.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/ext/bson.h" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/bson/ext/bson.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/daily100Model.js" afterPath="$PROJECT_DIR$/models/daily100Model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/daily100Routes.js" afterPath="$PROJECT_DIR$/routes/daily100Routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/core-component-page/demo.html" afterPath="$PROJECT_DIR$/public/vendor/core-component-page/demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/gyp/gyp.bat" afterPath="$PROJECT_DIR$/node_modules/node-gyp/gyp/gyp.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/.bin/har-validator.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/.bin/har-validator.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/.bin/has-ansi.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/.bin/has-ansi.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/home.html" afterPath="$PROJECT_DIR$/public/views/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/index.js" afterPath="$PROJECT_DIR$/node_modules/body-parser/node_modules/on-finished/node_modules/ee-first/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/index.js" afterPath="$PROJECT_DIR$/node_modules/connect/node_modules/finalhandler/node_modules/on-finished/node_modules/ee-first/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/on-finished/node_modules/ee-first/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/index.js" afterPath="$PROJECT_DIR$/node_modules/morgan/node_modules/on-finished/node_modules/ee-first/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/index.js" afterPath="$PROJECT_DIR$/public/vendor/angular/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python/iterate.dat" afterPath="$PROJECT_DIR$/python/iterate.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/polymer/layout.html" afterPath="$PROJECT_DIR$/public/vendor/polymer/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/.bin/mime.cmd" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/.bin/mime.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/.bin/mkdirp.cmd" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/.bin/mkdirp.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/mkdirp.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/mkdirp.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/monthly100Model.js" afterPath="$PROJECT_DIR$/models/monthly100Model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/monthly100Routes.js" afterPath="$PROJECT_DIR$/routes/monthly100Routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/nerd.html" afterPath="$PROJECT_DIR$/public/views/nerd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/node-gyp.cmd" afterPath="$PROJECT_DIR$/node_modules/.bin/node-gyp.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/nopt.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/nopt.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/angular/package.json" afterPath="$PROJECT_DIR$/public/vendor/angular/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vendor/polymer/polymer.js" afterPath="$PROJECT_DIR$/public/vendor/polymer/polymer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/.bin/rimraf.cmd" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/node_modules/.bin/rimraf.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/rimraf.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/rimraf.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python/sample1.txt" afterPath="$PROJECT_DIR$/python/sample1.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python/samplePopulate.py" afterPath="$PROJECT_DIR$/python/samplePopulate.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/gyp/samples/samples.bat" afterPath="$PROJECT_DIR$/node_modules/node-gyp/gyp/samples/samples.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python/script.py" afterPath="$PROJECT_DIR$/python/script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/semver.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/semver.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/.bin/strip-ansi.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/.bin/strip-ansi.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/.bin/supports-color.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/.bin/supports-color.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/trending100Model.js" afterPath="$PROJECT_DIR$/models/trending100Model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/trending100Routes.js" afterPath="$PROJECT_DIR$/routes/trending100Routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/.bin/uuid.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/request/node_modules/.bin/uuid.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/which.cmd" afterPath="$PROJECT_DIR$/node_modules/node-gyp/node_modules/.bin/which.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/yearly100Model.js" afterPath="$PROJECT_DIR$/models/yearly100Model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/yearly100Routes.js" afterPath="$PROJECT_DIR$/routes/yearly100Routes.js" />
     </list>
     <ignored path="FYP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,21 +32,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArticleCtrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArticleCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/controllers/ArticleCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="832" max-vertical-offset="1428">
-              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.45708582" vertical-offset="1777" max-vertical-offset="2669">
+              <caret line="118" column="89" selection-start-line="118" selection-start-column="89" selection-end-line="118" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="article.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/article.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6284153" vertical-offset="144" max-vertical-offset="510">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.692307" vertical-offset="69" max-vertical-offset="544">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -183,8 +109,8 @@
         <option value="$PROJECT_DIR$/public/views/home.html" />
         <option value="$PROJECT_DIR$/public/js/appRoutes.js" />
         <option value="$PROJECT_DIR$/public/js/controllers/MainCtrl.js" />
-        <option value="$PROJECT_DIR$/public/js/controllers/ArticleCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/article.html" />
+        <option value="$PROJECT_DIR$/public/js/controllers/ArticleCtrl.js" />
       </list>
     </option>
   </component>
@@ -521,7 +447,7 @@
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4090909" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32445142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15360501" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53291535" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -926,24 +852,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers/MainCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5530864" vertical-offset="2145" max-vertical-offset="2550">
-          <caret line="113" column="13" selection-start-line="95" selection-start-column="12" selection-end-line="113" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers/ArticleCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="832" max-vertical-offset="1428">
-          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.27237353" vertical-offset="1628" max-vertical-offset="2584">
+          <caret line="104" column="19" selection-start-line="104" selection-start-column="19" selection-end-line="106" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/article.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6284153" vertical-offset="144" max-vertical-offset="510">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="-13.692307" vertical-offset="69" max-vertical-offset="544">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers/ArticleCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45708582" vertical-offset="1777" max-vertical-offset="2669">
+          <caret line="118" column="89" selection-start-line="118" selection-start-column="89" selection-end-line="118" selection-end-column="89" />
           <folding />
         </state>
       </provider>

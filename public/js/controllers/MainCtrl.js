@@ -103,6 +103,8 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                 showMaxMin: false,
                 tickFormat: function(d) {
                     //return d3.time.format('%x')(new Date(2015, 1, d, 0, 0, 0, 0))
+                    //var date = new Date(year, 0); // initialize a date in `year-01-01`
+                    //return new Date(date.setDate(day))
                     return d;
 
                 }
