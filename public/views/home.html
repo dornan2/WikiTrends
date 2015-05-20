@@ -9,26 +9,39 @@
 <div class="row">
     <div class="col-md-4">
         <h1><span class="label label-default">Daily Popularity</span></h1>
-        <div ng-repeat="dailyRank in dailyList | limitTo:10">
-            <span>
-				<a href="/articles/{{dailyRank.name}}">{{ dailyRank._id }}. {{ dailyRank.name }}</a>
-			</span>
+        <div class="scrollArea">
+            <div ng-repeat="dailyRank in dailyList">
+                <span>
+                    {{ dailyRank._id }}.
+                    <a href="/articles/{{dailyRank.name}}"> {{ dailyRank.name }}</a>
+                    <a href="http://en.wikipedia.org/wiki/{{dailyRank.name}}"> <img src="images/wiki.png" alt="Mountain View" style="width:12px;height:12px"> </a>
+                </span>
+            </div>
         </div>
+
     </div>
     <div class="col-md-4">
         <h1><span class="label label-default">Monthly Popularity</span></h1>
-        <div ng-repeat="monthlyRank in MonthlyList | limitTo:10">
-            <span>
-				<a href="/articles/{{monthlyRank.name}}">{{ monthlyRank._id }}. {{ monthlyRank.name }}</a>
-			</span>
+        <div class="scrollArea">
+            <div ng-repeat="monthlyRank in MonthlyList">
+                <span>
+                    {{ monthlyRank._id }}.
+                    <a href="/articles/{{monthlyRank.name}}"> {{ monthlyRank.name }}</a>
+                    <a href="http://en.wikipedia.org/wiki/{{monthlyRank.name}}"> <img src="images/wiki.png" alt="Mountain View" style="width:12px;height:12px"> </a>
+                </span>
+            </div>
         </div>
     </div>
     <div class="col-md-4">
         <h1><span class="label label-default">Yearly Popularity</span></h1>
-        <div ng-repeat="yearlyRank in YearlyList | limitTo:10">
-            <span>
-				<a href="/articles/{{yearlyRank.name}}">{{ yearlyRank._id }}. {{ yearlyRank.name }}</a>
-			</span>
+        <div class="scrollArea">
+            <div ng-repeat="yearlyRank in YearlyList">
+                <span>
+                    {{ yearlyRank._id }}.
+                    <a href="/articles/{{yearlyRank.name}}"> {{ yearlyRank.name }}</a>
+                    <a href="http://en.wikipedia.org/wiki/{{yearlyRank.name}}"> <img src="images/wiki.png" alt="Mountain View" style="width:12px;height:12px"> </a>
+                </span>
+            </div>
         </div>
     </div>
 </div>
@@ -39,10 +52,11 @@
 <div id="todo-form" class="row">
     <div class="col-sm-8 col-sm-offset-2 text-center">
         <form>
+
             <div class="form-group">
 
                 <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="searchQuery">
+                <input type="text" class="form-control input-lg text-center" placeholder="Search for any article here" ng-model="searchQuery">
             </div>
 
             <!-- createToDo() WILL CREATE NEW TODOS -->
@@ -51,6 +65,7 @@
     </div>
 </div>
 
+<h1><span class="label label-default">What's currently trending</span></h1>
 <nvd3 options="options" data="data"></nvd3>
 
 <!-- TODO LIST -->
@@ -63,7 +78,7 @@
                 {{ trend._id }}.
 				<a href="/articles/{{trend.name}}"> {{ trend.name }} </a>
                 Z Score: {{ trend.total }}
-                <a href="http://en.wikipedia.org/wiki/{{trend.name}}"> WikiLink </a>
+                <a href="http://en.wikipedia.org/wiki/{{trend.name}}"> <img src="images/wiki.png" alt="Mountain View" style="width:12px;height:12px"> </a>
 			</span>
         </div>
 
