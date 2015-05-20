@@ -5,12 +5,26 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
     getDailyList('api/daily100/');
     getMonthlyList('api/monthly100/');
     getYearlyList('api/yearly100/');
+    fillChart();
 
     $scope.trends;
     $scope.dailyList;
     $scope.MonthlyList;
     $scope.YearlyList;
 
+    var keys  = [];
+
+    function fillChart() {
+        for (var i = 0; i < 3; i++) {
+            List.getData('api/trending100/' + i + '/')
+                .success(function (custs) {
+                    keys[i] = custs.name;
+                })
+                .error(function (error) {
+                    $scope.status = 'Unable to load customer data: ' + error.message;
+                });
+        }
+    }
 
     function getTrendsList(apiURL) {
         List.getData(apiURL)
@@ -42,7 +56,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
             });
     }
 
-
     function getYearlyList(apiURL) {
         List.getData(apiURL)
             .success(function (custs) {
@@ -64,14 +77,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
         console.log($scope.user);
     };
 
-    //var onRepos = function(response){
-    //    $scope.repos = response.data;
-    //};
-    //
-    //var onError = function (reason) {
-    //    $scope.error = "Could not fetch user";
-    //};
-
     $scope.search = function(username){
         List.getData("api/articles/" + username)
             .then(onUserComplete);
@@ -88,8 +93,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                 bottom: 60,
                 left: 40
             },
-            //x: function(d){return d[0];},
-            //y: function(d){return d[1];},
             x: function(d){return d[0];},
             y: function(d){return d[1];},
             useVoronoi: false,
@@ -99,7 +102,9 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
             xAxis: {
                 showMaxMin: false,
                 tickFormat: function(d) {
-                    return d3.time.format('%x')(new Date(2015, 1, d, 0, 0, 0, 0))
+                    //return d3.time.format('%x')(new Date(2015, 1, d, 0, 0, 0, 0))
+                    return d;
+
                 }
             },
             yAxis: {
@@ -110,44 +115,30 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
         }
     };
 
+    var list = {
+                1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 2, 7: 4, 8: 2, 9: 49, 10: 2, 11: 4 , 12: 24
+        },
+        arr = [];
 
-    var list = {1: 2, 2: 4, 3: 3, 4: 6, 5: 7, 6: 5,
-        7: 4,
-        8: 3,
-        9: 4,
-        10: 6,
-        11: 8,
-        12: 9,
-        13: 8,
-        14: 7,
-        15: 6,
-        16: 5,
-        17: 4,
-        18: 32,
-        19: 1,
-        20: 7,
-        21: 4,
-        22: 3,
-        23: 4,
-        24: 6,
-        25: 8,
-        26: 5,
-        27: 3, 28: 8, 29: 6, 30: 3, 31: 4
-    }, arr = [];
+    var list1 = {
+            1: 12, 2: 14, 3: 12, 4: 14, 5: 12, 6: 12, 7: 14, 8: 12, 9: 49, 10: 12, 11: 14 , 12: 14
+        },
+        arr1 = [];
 
     for (var key in list) {
         arr.push([key, list[key]]);
+        arr1.push([key, list1[key]]);
     }
-
-
 
     $scope.data = [
         {
-            "key" : "howaya" ,
-            //"values" : [ {'1': 3, '3': 4,'31': 6} ],
+            "key" : keys[0],
             "values" : arr
+        },
+        {
+            "key" : keys[1],
+            "values" : arr1
         }
-
     ]
 
 });

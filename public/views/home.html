@@ -60,7 +60,10 @@
         <!-- LOOP OVER THE TODOS IN $scope.todos -->
         <div ng-repeat="trend in trends | limitTo:10">
             <span>
-				<a href="/articles/{{trend.name}}">{{ trend._id }}. {{ trend.name }} Z Score: {{ trend.total }}</a>
+                {{ trend._id }}.
+				<a href="/articles/{{trend.name}}"> {{ trend.name }} </a>
+                Z Score: {{ trend.total }}
+                <a href="http://en.wikipedia.org/wiki/{{trend.name}}"> WikiLink </a>
 			</span>
         </div>
 
