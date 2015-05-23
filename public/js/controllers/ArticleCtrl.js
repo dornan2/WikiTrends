@@ -61,8 +61,8 @@ angular.module('ArticleCtrl', []).controller('ArticleController', function($scop
                 };
 
                 $scope.data = [
-                    {   "key":name,
-                        "values": arr
+                    {   "key" : name,
+                        "values" : arr
 
                     }
                 ]

@@ -202,7 +202,7 @@ num = 1
 for doc in collection.find({}, {'zScore': 1}).sort('zScore', pymongo.DESCENDING).limit(100):
     db.trending100.update(
                 {'_id': num},
-                {'$set': {'name': doc['_id'], 'total': str(doc['zScore'])}},
+                {'$set': {'name': doc['_id'], 'total': str(doc['daily_views'])}},
                 True
     )
     num += 1
