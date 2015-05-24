@@ -74,11 +74,6 @@ yearly_views = {
 # clean it
 print("Cleaning file of unwanted data and populating database...")
 
-
-
-
-
-
 # when it is a new month you need to find out what yesterdays date was
 # if its a new day updates yearly views and resets day_total and daily views
 # start of a new day reset day total and update new yearly
@@ -108,14 +103,8 @@ else:
                 True
             )
 
-
-
-
-
-
-counter = 1
 # write check for empty article
-with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
+with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
     for line in infile:
         if (line.startswith(("EN ", "En ", "en ")) and
                 not line.startswith(("en Category:", "en Wikipedia%3","Help:", "en Portal_talk:", "en Talk%3A", "en Template_talk",
@@ -189,7 +178,7 @@ for doc in collection.find({'day_total': {'$gt': 250}}, {'day_total': 1}).sort('
 
 # monthly update
 num = 1
-for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
+for doc in collection.find({'month_total': {'$gt': 250}}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
     db.monthly100.update(
             {'_id': num},
             {'$set': {'name': doc['_id'], 'total': str(doc['month_total'])}},
@@ -200,7 +189,7 @@ for doc in collection.find({}, {'month_total': 1}).sort('month_total', pymongo.D
 
 # yearly update
 num = 1
-for doc in collection.find({}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
+for doc in collection.find({'year_total': {'$gt': 250}}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
     db.yearly100.update(
             {'_id': num},
             {'$set': {'name': doc['_id'], 'total': str(doc['year_total'])}},

@@ -10,7 +10,7 @@
     <div class="col-md-4">
         <h1><span class="label label-default">Daily Popularity</span></h1>
         <div class="scrollArea">
-            <div ng-repeat="dailyRank in dailyList">
+            <div ng-repeat="dailyRank in dailyList | orderBy: '_id'">
                 <span>
                     {{ dailyRank._id }}.
                     <a href="/articles/{{dailyRank.name}}"> {{ dailyRank.name }}</a>
@@ -23,7 +23,7 @@
     <div class="col-md-4">
         <h1><span class="label label-default">Monthly Popularity</span></h1>
         <div class="scrollArea">
-            <div ng-repeat="monthlyRank in MonthlyList">
+            <div ng-repeat="monthlyRank in MonthlyList | orderBy: '_id'">
                 <span>
                     {{ monthlyRank._id }}.
                     <a href="/articles/{{monthlyRank.name}}"> {{ monthlyRank.name }}</a>
@@ -35,7 +35,7 @@
     <div class="col-md-4">
         <h1><span class="label label-default">Yearly Popularity</span></h1>
         <div class="scrollArea">
-            <div ng-repeat="yearlyRank in YearlyList">
+            <div ng-repeat="yearlyRank in YearlyList | orderBy: '_id'">
                 <span>
                     {{ yearlyRank._id }}.
                     <a href="/articles/{{yearlyRank.name}}"> {{ yearlyRank.name }}</a>
@@ -78,7 +78,7 @@
     <div class="col-sm-4 col-sm-offset-4">
 
         <!-- LOOP OVER THE TODOS IN $scope.todos -->
-        <div ng-repeat="trend in trends | limitTo:10">
+        <div ng-repeat="trend in trends | limitTo:10  | orderBy: '_id'">
             <span>
                 {{ trend._id }}.
 				<a href="/articles/{{trend.name}}"> {{ trend.name }} </a>
