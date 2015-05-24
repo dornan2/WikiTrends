@@ -74,8 +74,46 @@ yearly_views = {
 # clean it
 print("Cleaning file of unwanted data and populating database...")
 
-counter = 1
 
+
+
+
+
+# when it is a new month you need to find out what yesterdays date was
+# if its a new day updates yearly views and resets day_total and daily views
+# start of a new day reset day total and update new yearly
+if hour == "0" and day != "1":
+    for doc in collection.find({}):
+        collection.update(
+            {'_id': doc['_id']},
+            {'$set': {
+                'yearly_views.'+str(month.lstrip("0"))+"."+str(int(day)-1): collection.find_one({"_id": doc['_id']})['day_total'],
+                'day_total': 0,
+                'daily_views': days_views
+                }
+            },
+            True
+        )
+else:
+    # if it is a new day of a new month update yearly views and reset day_total and monthly total
+    if hour == "0" and day == "1":
+        for doc in collection.find({}):
+            collection.update(
+                {'_id': doc['_id']},
+                {'$set': {
+                    'yearly_views.'+str(int(month)-1)+"."+str((date.today() - timedelta(1)).strftime('%d')): collection.find_one({"_id": doc['_id']})['day_total'],
+                    'day_total': 0, 'month_total': 0, 'daily_views': days_views
+                    }
+                },
+                True
+            )
+
+
+
+
+
+
+counter = 1
 # write check for empty article
 with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
     for line in infile:
@@ -108,33 +146,6 @@ with io.open('tempTextFile.txt', 'r',encoding='utf-8') as infile:
                         "zScore": 0.0
                     }
                 )
-
-            # when it is a new month you need to find out what yesterdays date was
-            # if its a new day updates yearly views and resets day_total and daily views
-            # start of a new day reset day total and update new yearly
-            if hour == "0" and day != "1":
-                collection.update(
-                    {'_id': article_Name},
-                    {'$set': {
-                        'yearly_views.'+str(month)+"."+str(int(day)-1): collection.find_one({"_id": article_Name})['day_total'],
-                        'day_total': 0,
-                        'daily_views': days_views
-                        }
-                    },
-                    True
-                )
-            else:
-                # if it is a new day of a new month update yearly views and reset day_total and monthly total
-                if hour == "0" and day == "1":
-                    collection.update(
-                        {'_id': article_Name},
-                        {'$set': {
-                            'yearly_views.'+str(int(month)-1)+"."+str((date.today() - timedelta(1)).strftime('%d')): collection.find_one({"_id": article_Name})['day_total'],
-                            'day_total': 0, 'month_total': 0, 'daily_views': days_views
-                            }
-                        },
-                        True
-                    )
 
             # Sets hourly view and updates day, month, year by the last hour hits
             collection.update(
