@@ -56,6 +56,8 @@ top = db.top100
 
 days_views = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0}
 
+future_forecast = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0}
+
 yearly_views = {
      '1': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0},
      '2': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0},
@@ -71,8 +73,7 @@ yearly_views = {
     '12': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0}
 }
 
-# clean it
-print("Cleaning file of unwanted data and populating database...")
+print("Daily reset...")
 
 # when it is a new month you need to find out what yesterdays date was
 # if its a new day updates yearly views and resets day_total and daily views
@@ -84,7 +85,8 @@ if hour == "0" and day != "1":
             {'$set': {
                 'yearly_views.'+str(month.lstrip("0"))+"."+str(int(day)-1): collection.find_one({"_id": doc['_id']})['day_total'],
                 'day_total': 0,
-                'daily_views': days_views
+                'daily_views': days_views,
+                'future_forecast': future_forecast
                 }
             },
             True
@@ -102,6 +104,41 @@ else:
                 },
                 True
             )
+
+print("Predicting the future...")
+if hour == "1":
+    for doc in collection.find({}):
+        for x in range(1, int(day) + 15):
+            if x == 1:
+                forecast = doc['yearly_views'][month.lstrip("0")][str(x)]
+            if x > int(day):
+                forecast = (.5 * doc['yearly_views'][month.lstrip("0")][day]) + ((1 - .5) * forecast)
+                collection.update(
+                {'_id': doc['_id']},
+                {'$set': {
+                    'future_forecast.'+str(x-int(day)): forecast
+                    }
+                },
+                True
+            )
+            else:
+                forecast = forecast + .5 * (doc['yearly_views'][month.lstrip("0")][str(x)] - forecast)
+
+
+
+if hour == '1':
+    # Two week forecast update
+    num = 1
+    for doc in collection.find({}, {'future_forecast': 1}).sort('future_forecast.14', pymongo.DESCENDING).limit(100):
+        db.forecast100.update(
+                    {'_id': num},
+                    {'$set': {'name': doc['_id'], 'total': doc['future_forecast']['14'], 'forecast': doc['future_forecast']}},
+                    True
+        )
+        num += 1
+
+#clean it
+print("Cleaning file of unwanted data and populating database...")
 
 # write check for empty article
 with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
@@ -199,7 +236,7 @@ for doc in collection.find({'year_total': {'$gt': 250}}, {'year_total': 1}).sort
 
 # trending update
 num = 1
-for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', pymongo.DESCENDING).limit(100):
+for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', pymongo.DESCENDING).limit(10):
     db.trending100.update(
                 {'_id': num},
                 {'$set': {'name': doc['_id'], 'total': doc['daily_views']}},

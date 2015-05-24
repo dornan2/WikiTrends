@@ -12,6 +12,8 @@ import string
 #
 # # get file name
 #
+from statsmodels.tsa.vector_ar.var_model import forecast
+
 now = datetime.now()
 year = str(now.year)
 month = str("{:0>2d}".format(now.month))
@@ -19,8 +21,8 @@ month = str("{:0>2d}".format(now.month))
 # hour = str("{:0>2d}".format(now.hour))
 
 
-day = "1"
-hour = "10"
+day = "14"
+hour = "1"
 
 #
 # url = "http://dumps.wikimedia.org/other/pagecounts-raw/" + year + "/" + year + "-" + month + "/pagecounts-" + year + month + day + "-" + hour + "0000.gz"
@@ -62,6 +64,8 @@ top = db.top100
 #
 days_views = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0}
 
+future_forecast = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0}
+
 yearly_views = {
      '1': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0},
      '2': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0},
@@ -77,6 +81,8 @@ yearly_views = {
     '12': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0}
 }
 
+print("predicting the future...")
+
 # when it is a new month you need to find out what yesterdays date was
 # if its a new day updates yearly views and resets day_total and daily views
 # start of a new day reset day total and update new yearly
@@ -87,7 +93,8 @@ if hour == "0" and day != "1":
             {'$set': {
                 'yearly_views.'+str(month.lstrip("0"))+"."+str(int(day)-1): collection.find_one({"_id": doc['_id']})['day_total'],
                 'day_total': 0,
-                'daily_views': days_views
+                'daily_views': days_views,
+                'future_forecast': future_forecast
                 }
             },
             True
@@ -106,7 +113,40 @@ else:
                 True
             )
 
+if hour == "1":
+    for doc in collection.find({}):
+        # print(str(doc['yearly_views'][month.lstrip("0")]['1']))
+        future = []
 
+
+        for x in range(1, int(day) + 15):
+            if x == 1:
+                forecast = doc['yearly_views'][month.lstrip("0")][str(x)]
+            if x > int(day):
+                forecast = (.5 * doc['yearly_views'][month.lstrip("0")][day]) + ((1 - .5) * forecast)
+                collection.update(
+                {'_id': doc['_id']},
+                {'$set': {
+                    'future_forecast.'+str(x-int(day)): forecast
+                    }
+                },
+                True
+            )
+            else:
+                forecast = forecast + .5 * (doc['yearly_views'][month.lstrip("0")][str(x)] - forecast)
+
+
+
+if hour == '1':
+    # Two week forecast update
+    num = 1
+    for doc in collection.find({}, {'future_forecast': 1}).sort('future_forecast.14', pymongo.DESCENDING).limit(100):
+        db.forecast100.update(
+                    {'_id': num},
+                    {'$set': {'name': doc['_id'], 'total': doc['future_forecast']['14'], 'forecast': doc['future_forecast']}},
+                    True
+        )
+        num += 1
 
 
 
@@ -176,8 +216,6 @@ with io.open('sample1.txt', 'r',encoding='utf-8') as infile:
                     True
                 )
 
-                print("Name: " + article_Name + " has a Z score of " + str((hits - avg) / std))
-
 # update top100 table
 print("Updating of top 100 collection...")
 
@@ -223,6 +261,8 @@ for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', p
     num += 1
 
 
+
+
 # print("The database has been successfully updated")
 #
 # # clean talk files
@@ -230,17 +270,4 @@ for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', p
 #
 # # os.remove('tempTextFile.txt')
 # # os.remove(file_name + ".gz")
-
-
-
-
-
-
-# # Calculates hourly Z Score for trend identification
-#
-# hits = 25
-# daySoFar = [12, 12, 12, 32, 430, 40, 2, 0, 0, 0, 0, 0]
-#
-#
-
 
