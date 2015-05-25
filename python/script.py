@@ -32,22 +32,22 @@ if hour == "00":
 else:
     hour = hour.lstrip("0")
 
-# download it
-print("Downloading " + file_name + ".gz...")
-with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
-    shutil.copyfileobj(response, out_file)
-
-#extract it
-print("Extracting .gz file...")
-
-inF = gzip.open("" + file_name + ".gz", 'rb')
-outF = open('tempTextFile.txt', 'wb')
-
-for line in inF:
-    outF.write(line)
-
-inF.close()
-outF.close()
+# # download it
+# print("Downloading " + file_name + ".gz...")
+# with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
+#     shutil.copyfileobj(response, out_file)
+#
+# #extract it
+# print("Extracting .gz file...")
+#
+# inF = gzip.open("" + file_name + ".gz", 'rb')
+# outF = open('tempTextFile.txt', 'wb')
+#
+# for line in inF:
+#     outF.write(line)
+#
+# inF.close()
+# outF.close()
 
 client = MongoClient('localhost', 27017)
 db = client.wiki_database
@@ -149,7 +149,7 @@ with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
                 len(line) < 120 and
                 int(line.split()[3])/int(line.split()[2]) > 6732 and
                 "." not in line.split()[1] and
-                int(line.split()[2]) >= 3
+                int(line.split()[2]) >= 1000
         ):
             hits = int(line.split()[2])
             article_Name = urllib.parse.unquote(line.split()[1], encoding='utf-8')
@@ -180,15 +180,17 @@ with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
             # Calculates hourly Z Score for trend identification
             if hits > 20:
                 daySoFar = []
+                doc = collection.find_one({"_id": article_Name})['yearly_views'][month]
                 for num in range(1, int(day)+1):
-                    daySoFar.extend([int(collection.find_one({"_id": article_Name})['daily_views'][str(num)]) * num])
+                    daySoFar.extend([int(doc[str(num)]) * num])
                     # daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['yearly_views'][month][str(num)]) * num])
 
+                doc = collection.find_one({"_id": article_Name})['daily_views']
                 for number in range(0, int(hour)+1):
-                    daySoFar.extend([int(collection.find_one({"_id": article_Name})['daily_views'][str(num)]) * 24 * num])
+                    daySoFar.extend([int(doc[str(number)]) * (24 * num)])
                     # daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['daily_views'][str(number)]) * 24 * num])
 
-                hits = hits * 24 * num
+                hits = (hits * 24) * num
                 number = float(len(daySoFar))
                 avg = sum(daySoFar) / number
 
