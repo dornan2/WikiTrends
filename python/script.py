@@ -181,13 +181,13 @@ with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
             if hits > 20:
                 daySoFar = []
                 for num in range(1, int(day)+1):
-                    # daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
-                    daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['yearly_views'][month][str(num)]) * num])
+                    daySoFar.extend([int(collection.find_one({"_id": article_Name})['daily_views'][str(num)]) * num])
+                    # daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['yearly_views'][month][str(num)]) * num])
 
                 for number in range(0, int(hour)+1):
-                    # daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
-                    daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['daily_views'][str(number)]) * 24 * num])
-        
+                    daySoFar.extend([int(collection.find_one({"_id": article_Name})['daily_views'][str(num)]) * 24 * num])
+                    # daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['daily_views'][str(number)]) * 24 * num])
+
                 hits = hits * 24 * num
                 number = float(len(daySoFar))
                 avg = sum(daySoFar) / number
@@ -197,8 +197,7 @@ with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
                     std = 1
 
                 collection.update(
-                    # {'_id': article_Name},
-                    {'_id': doc['_id']},
+                    {'_id': article_Name},
                     {'$set': {'zScore':  (hits - avg) / std}},
                     True
                 )

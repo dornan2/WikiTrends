@@ -69,16 +69,16 @@
 <nvd3 options="options" data="data"></nvd3>
 
 
-<h1>TEST DATA: {{data}}</h1>
+<!--<h1>TEST DATA: {{data}}</h1>-->
 
-<h1>TEST RARA: {{RARA}}</h1>
+<!--<h1>TEST RARA: {{RARA}}</h1>-->
 
 <!-- TODO LIST -->
 <div id="todo-list" class="row">
     <div class="col-sm-4 col-sm-offset-4">
 
         <!-- LOOP OVER THE TODOS IN $scope.todos -->
-        <div ng-repeat="trend in trends | limitTo:10  | orderBy: '_id'">
+        <div ng-repeat="trend in trends | orderBy: '_id' | limitTo:10">
             <span>
                 {{ trend._id }}.
 				<a href="/articles/{{trend.name}}"> {{ trend.name }} </a>

@@ -48,7 +48,7 @@ articleRouter = require('./routes/articleRoutes')(Article);
 daily100Router = require('./routes/daily100Routes')(Daily100);
 monthly100Router = require('./routes/monthly100Routes')(Monthly100);
 yearly100Router = require('./routes/yearly100Routes')(Yearly100);
-forecastRouter = require('./routes/futureForecastRoutes')(Forecast);
+forecastRouter = require('./routes/forecastRoutes')(Forecast);
 
 app.use('/api', trending100Router);
 app.use('/api', articleRouter);

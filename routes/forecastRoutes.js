@@ -3,7 +3,7 @@ var express = require('express');
 var routes = function(Forecast){
     var forecastRouter = express.Router();
 
-    forecastRouter.route('/Articles')
+    forecastRouter.route('/forecast')
         .get(function(req, res){
             Forecast.find(function(err, forecast){
                 if(err)
