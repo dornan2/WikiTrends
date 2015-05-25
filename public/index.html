@@ -38,22 +38,29 @@
     <script src="js/angularApp.js"></script>
 </head>
 <body ng-app="sampleApp" ng-controller="MainController">
-<div class="container">
+    <div class="container">
 
-    <!-- HEADER -->
-    <nav class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Trending</a>
-        </div>
+        <!-- HEADER -->
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Trending</a>
+            </div>
 
-        <ul class="nav navbar-nav">
-            <li><a href="/articles/">Forcasting</a></li>
-        </ul>
-    </nav>
+            <ul class="nav navbar-nav">
+                <li><a href="/forecast/">Forcasting</a></li>
+            </ul>
+        </nav>
 
-    <!-- ANGULAR DYNAMIC CONTENT -->
-    <div ng-view></div>
+        <!-- ANGULAR DYNAMIC CONTENT -->
+        <div ng-view></div>
 
-</div>
+    </div>
+    <div id="footer">
+        <a href="https://github.com/dornan2/WikiTrends">GitHub</a>
+        <a>.</a>
+        <a href="/api/">API</a>
+        <a>.</a>
+        <a href="/about/">About</a>
+    </div>
 </body>
 </html>

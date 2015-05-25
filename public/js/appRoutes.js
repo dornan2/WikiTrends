@@ -8,16 +8,26 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'MainController'
         })
 
+        .when('/api', {
+            templateUrl: 'views/api.html',
+            controller: 'MainController'
+        })
 
-        //.when('/articles', {
-        //    templateUrl: 'views/article.html',
-        //    controller: 'ArticleController'
-        //})
+        .when('/about', {
+            templateUrl: 'views/about.html',
+            controller: 'MainController'
+        })
+
+        .when('/forecast', {
+            templateUrl: 'views/forecast.html',
+            controller: 'MainController'
+        })
 
         .when('/articles/:articleNAM/', {
             templateUrl: 'views/article.html',
             controller: 'ArticleController'
         })
+
         .otherwise({
             redirectTo: '/'
         });

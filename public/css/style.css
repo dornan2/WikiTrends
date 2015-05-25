@@ -2,3 +2,12 @@
     height: 200px;
     overflow: auto;
 }
+
+
+#footer {
+    background-color:#add8e6;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}

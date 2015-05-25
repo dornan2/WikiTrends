@@ -37,6 +37,7 @@ var Article = require('./models/ArticleModel');
 var Daily100 = require('./models/daily100Model');
 var Monthly100 = require('./models/monthly100Model');
 var Yearly100 = require('./models/yearly100Model');
+var Forecast = require('./models/forecastModel');
 
 /**
  * Define Routes
@@ -47,12 +48,14 @@ articleRouter = require('./routes/articleRoutes')(Article);
 daily100Router = require('./routes/daily100Routes')(Daily100);
 monthly100Router = require('./routes/monthly100Routes')(Monthly100);
 yearly100Router = require('./routes/yearly100Routes')(Yearly100);
+forecastRouter = require('./routes/futureForecastRoutes')(Forecast);
 
 app.use('/api', trending100Router);
 app.use('/api', articleRouter);
 app.use('/api', daily100Router);
 app.use('/api', monthly100Router);
 app.use('/api', yearly100Router);
+app.use('/api', forecastRouter);
 
 /**
  * Application
