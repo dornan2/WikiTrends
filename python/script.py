@@ -106,7 +106,7 @@ else:
             )
 
 print("Predicting the future...")
-if hour == "1":
+if '1' == '1':
     for doc in collection.find({}):
         for x in range(1, int(day) + 15):
             if x == 1:
@@ -125,8 +125,7 @@ if hour == "1":
                 forecast = forecast + .5 * (doc['yearly_views'][month.lstrip("0")][str(x)] - forecast)
 
 
-
-if hour == '1':
+if '1' == '1':
     # Two week forecast update
     num = 1
     for doc in collection.find({}, {'future_forecast': 1}).sort('future_forecast.14', pymongo.DESCENDING).limit(100):
