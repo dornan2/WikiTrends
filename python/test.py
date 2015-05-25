@@ -272,25 +272,29 @@ top = db.top100
 #
 
 hour = 12
-
+day = 12
+month = '10'
 hits = 22
+
 for doc in collection.find({}):
     # Calculates hourly Z Score for trend identification
+
     if hits > 20:
-        # daySoFar = []
-        # for num in range(0, int(hour)+1):
-        #     # daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
-        #     daySoFar.extend([collection.find_one({"_id": doc['_id']})['daily_views'][str(num)]])
+        daySoFar = []
+        for num in range(1, int(day)+1):
+            # daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
+            daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['yearly_views'][month][str(num)]) * num])
 
-        daySoFar = [1, 2, 3, 54, 34, 65, 32, 67, 32, 2]
+        for number in range(0, int(hour)+1):
+            # daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
+            daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['daily_views'][str(number)]) * 24 * num])
 
+        # print(daySoFar)
 
-
+        hits = hits * 24 * num
         number = float(len(daySoFar))
 
-
         avg = sum(daySoFar) / number
-        print(ag)
 
         std = sqrt(sum(((c - avg) ** 2) for c in daySoFar) / number)
         if std == 0.0:
@@ -298,9 +302,11 @@ for doc in collection.find({}):
 
         print(str((hits - avg) / std))
 
-        # collection.update(
-        #     # {'_id': article_Name},
-        #     {'_id': doc['_id']},
-        #     {'$set': {'zScore':  (hits - avg) / std}},
-        #     True
-        # )
+        print("Hits: " + str(hits) + " Average: " + str(avg) + " Std: " + str(std))
+
+        collection.update(
+            # {'_id': article_Name},
+            {'_id': doc['_id']},
+            {'$set': {'zScore':  (hits - avg) / std}},
+            True
+        )

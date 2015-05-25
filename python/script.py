@@ -104,36 +104,33 @@ yearly_views = {
 #                 True
 #             )
 
-print("Predicting the future...")
-if '1' == '1':
-    for doc in collection.find({}):
-        for x in range(1, int(day) + 15):
-            if x == 1:
-                forecast = doc['yearly_views'][month.lstrip("0")][str(x)]
-            if x > int(day):
-                forecast = (.5 * doc['yearly_views'][month.lstrip("0")][day]) + ((1 - .5) * forecast)
-                collection.update(
-                {'_id': doc['_id']},
-                {'$set': {
-                    'future_forecast.'+str(x-int(day)): forecast
-                    }
-                },
-                True
-            )
-            else:
-                forecast = forecast + .5 * (doc['yearly_views'][month.lstrip("0")][str(x)] - forecast)
-
-#
+# print("Predicting the future...")
 # if '1' == '1':
-#     # Two week forecast update
-#     num = 1
-#     for doc in collection.find({}, {'future_forecast': 1}).sort('future_forecast.14', pymongo.DESCENDING).limit(100):
-#         db.forecast100.update(
-#                     {'_id': num},
-#                     {'$set': {'name': doc['_id'], 'total': doc['future_forecast']['14'], 'forecast': doc['future_forecast']}},
+#     for doc in collection.find({}):
+#         for x in range(1, int(day) + 15):
+#             if x == 1:
+#                 forecast = doc['yearly_views'][month.lstrip("0")][str(x)]
+#             if x > int(day):
+#                 forecast = (.5 * doc['yearly_views'][month.lstrip("0")][day]) + ((1 - .5) * forecast)
+#                 collection.update(
+#                     {'_id': doc['_id']},
+#                     {'$set': {'future_forecast.'+str(x-int(day)): forecast}},
 #                     True
-#         )
-#         num += 1
+#                 )
+#             else:
+#                 forecast = forecast + .5 * (doc['yearly_views'][month.lstrip("0")][str(x)] - forecast)
+
+
+if '1' == '1':
+    # Two week forecast update
+    num = 1
+    for doc in collection.find({}, {'future_forecast': 1}).sort('future_forecast.14', pymongo.DESCENDING).limit(100):
+        db.forecast100.update(
+                    {'_id': num},
+                    {'$set': {'name': doc['_id'], 'total': doc['future_forecast']['14'], 'forecast': doc['future_forecast']}},
+                    True
+        )
+        num += 1
 
 # #clean it
 # print("Cleaning file of unwanted data and populating database...")
