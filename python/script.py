@@ -73,36 +73,36 @@ yearly_views = {
     '12': {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0}
 }
 
-# print("Daily reset...")
-#
-# # when it is a new month you need to find out what yesterdays date was
-# # if its a new day updates yearly views and resets day_total and daily views
-# # start of a new day reset day total and update new yearly
-# if hour == "0" and day != "1":
-#     for doc in collection.find({}):
-#         collection.update(
-#             {'_id': doc['_id']},
-#             {'$set': {
-#                 'yearly_views.'+str(month.lstrip("0"))+"."+str(int(day)-1): collection.find_one({"_id": doc['_id']})['day_total'],
-#                 'day_total': 0,
-#                 'daily_views': days_views
-#                 }
-#             },
-#             True
-#         )
-# else:
-#     # if it is a new day of a new month update yearly views and reset day_total and monthly total
-#     if hour == "0" and day == "1":
-#         for doc in collection.find({}):
-#             collection.update(
-#                 {'_id': doc['_id']},
-#                 {'$set': {
-#                     'yearly_views.'+str(int(month)-1)+"."+str((date.today() - timedelta(1)).strftime('%d')): collection.find_one({"_id": doc['_id']})['day_total'],
-#                     'day_total': 0, 'month_total': 0, 'daily_views': days_views
-#                     }
-#                 },
-#                 True
-#             )
+print("Daily reset...")
+
+# when it is a new month you need to find out what yesterdays date was
+# if its a new day updates yearly views and resets day_total and daily views
+# start of a new day reset day total and update new yearly
+if hour == "0" and day != "1":
+    for doc in collection.find({}):
+        collection.update(
+            {'_id': doc['_id']},
+            {'$set': {
+                'yearly_views.'+str(month.lstrip("0"))+"."+str(int(day)-1): collection.find_one({"_id": doc['_id']})['day_total'],
+                'day_total': 0,
+                'daily_views': days_views
+                }
+            },
+            True
+        )
+else:
+    # if it is a new day of a new month update yearly views and reset day_total and monthly total
+    if hour == "0" and day == "1":
+        for doc in collection.find({}):
+            collection.update(
+                {'_id': doc['_id']},
+                {'$set': {
+                    'yearly_views.'+str(int(month)-1)+"."+str((date.today() - timedelta(1)).strftime('%d')): collection.find_one({"_id": doc['_id']})['day_total'],
+                    'day_total': 0, 'month_total': 0, 'daily_views': days_views
+                    }
+                },
+                True
+            )
 
 # print("Predicting the future...")
 # if '1' == '1':
@@ -121,7 +121,7 @@ yearly_views = {
 #                 forecast = forecast + .5 * (doc['yearly_views'][month.lstrip("0")][str(x)] - forecast)
 
 
-if '1' == '1':
+if hour == '1':
     # Two week forecast update
     num = 1
     for doc in collection.find({}, {'future_forecast': 1}).sort('future_forecast.14', pymongo.DESCENDING).limit(100):
@@ -132,118 +132,126 @@ if '1' == '1':
         )
         num += 1
 
-# #clean it
-# print("Cleaning file of unwanted data and populating database...")
-#
-# # write check for empty article
-# with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
-#     for line in infile:
-#         if (line.startswith(("EN ", "En ", "en ")) and
-#                 not line.startswith(("en Category:", "en Wikipedia%3","Help:", "en Portal_talk:", "en Talk%3A", "en Template_talk",
-#                                         "en Special%", "en Portal:", "en Template_talk:", "en Draft:", "en File:",
-#                                         "en Category%3A", "en Wiki/", "en Talk%3a", "File_talk:", "en Special:",
-#                                         "en Talk:", "en Template:", "en User:", "en Wikipedia:", "en Wikipedia_talk:",
-#                                         "en User_talk", "en Category_talk:", "en Search_search_", "en category:", "en en:",
-#                                         "en  ", "en Main_Page")) and
-#                 all(c in string.printable for c in line) and
-#                 len(line) < 120 and
-#                 int(line.split()[3])/int(line.split()[2]) > 6732 and
-#                 "." not in line.split()[1] and
-#                 int(line.split()[2]) >= 3
-#         ):
-#             hits = int(line.split()[2])
-#             article_Name = urllib.parse.unquote(line.split()[1], encoding='utf-8')
-#
-#             # if no document for this article is found creates a document for it
-#             if collection.find({"_id": article_Name}, {"_id": 1}).limit(1).count() < 1:
-#                 collection.insert(
-#                     {
-#                         "_id": article_Name,
-#                         "day_total": 0,
-#                         "month_total": 0,
-#                         "year_total": 0,
-#                         "daily_views": days_views,
-#                         "yearly_views": yearly_views,
-#                         "zScore": 0.0
-#                     }
-#                 )
-#
-#             # Sets hourly view and updates day, month, year by the last hour hits
-#             collection.update(
-#                 {'_id': article_Name},
-#                 {'$set': {'daily_views.' + str(hour): hits},
-#                  '$inc': {'day_total': hits, 'month_total': hits, 'year_total': hits, }
-#                 },
-#                 True
-#             )
-#
-#             # Calculates hourly Z Score for trend identification
-#             if hits > 20:
-#                 daySoFar = []
-#                 for num in range(0, int(hour)+1):
-#                     daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
-#
-#                 number = float(len(daySoFar))
-#                 avg = sum(daySoFar) / number
-#                 std = sqrt(sum(((c - avg) ** 2) for c in daySoFar) / number)
-#                 if std == 0.0:
-#                     std = 1
-#
-#                 collection.update(
-#                     {'_id': article_Name},
-#                     {'$set': {'zScore':  (hits - avg) / std}},
-#                     True
-#                 )
-#
-# # update top100 table
-# print("Updating of top 100 collection...")
-#
-# # daily update
-# num = 1
-# for doc in collection.find({'day_total': {'$gt': 250}}, {'day_total': 1}).sort('day_total', pymongo.DESCENDING).limit(100):
-#     db.daily100.update(
-#             {'_id': num},
-#             {'$set': {'name': doc['_id'], 'total': str(doc['day_total'])}},
-#             True
-#     )
-#     num += 1
-#
-# # monthly update
-# num = 1
-# for doc in collection.find({'month_total': {'$gt': 250}}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
-#     db.monthly100.update(
-#             {'_id': num},
-#             {'$set': {'name': doc['_id'], 'total': str(doc['month_total'])}},
-#             True
-#     )
-#     num += 1
-#
-#
-# # yearly update
-# num = 1
-# for doc in collection.find({'year_total': {'$gt': 250}}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
-#     db.yearly100.update(
-#             {'_id': num},
-#             {'$set': {'name': doc['_id'], 'total': str(doc['year_total'])}},
-#             True
-#     )
-#     num += 1
-#
-# # trending update
-# num = 1
-# for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', pymongo.DESCENDING).limit(10):
-#     db.trending100.update(
-#                 {'_id': num},
-#                 {'$set': {'name': doc['_id'], 'total': doc['daily_views']}},
-#                 True
-#     )
-#     num += 1
-#
-# print("The database has been successfully updated")
-#
-# # clean talk files
-# print("Deleting old files...")
-#
-# # os.remove('tempTextFile.txt')
-# # os.remove(file_name + ".gz")
-#
+#clean it
+print("Cleaning file of unwanted data and populating database...")
+
+# write check for empty article
+with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
+    for line in infile:
+        if (line.startswith(("EN ", "En ", "en ")) and
+                not line.startswith(("en Category:", "en Wikipedia%3","Help:", "en Portal_talk:", "en Talk%3A", "en Template_talk",
+                                        "en Special%", "en Portal:", "en Template_talk:", "en Draft:", "en File:",
+                                        "en Category%3A", "en Wiki/", "en Talk%3a", "File_talk:", "en Special:",
+                                        "en Talk:", "en Template:", "en User:", "en Wikipedia:", "en Wikipedia_talk:",
+                                        "en User_talk", "en Category_talk:", "en Search_search_", "en category:", "en en:",
+                                        "en  ", "en Main_Page")) and
+                all(c in string.printable for c in line) and
+                len(line) < 120 and
+                int(line.split()[3])/int(line.split()[2]) > 6732 and
+                "." not in line.split()[1] and
+                int(line.split()[2]) >= 3
+        ):
+            hits = int(line.split()[2])
+            article_Name = urllib.parse.unquote(line.split()[1], encoding='utf-8')
+
+            # if no document for this article is found creates a document for it
+            if collection.find({"_id": article_Name}, {"_id": 1}).limit(1).count() < 1:
+                collection.insert(
+                    {
+                        "_id": article_Name,
+                        "day_total": 0,
+                        "month_total": 0,
+                        "year_total": 0,
+                        "daily_views": days_views,
+                        "yearly_views": yearly_views,
+                        "zScore": 0.0
+                    }
+                )
+
+            # Sets hourly view and updates day, month, year by the last hour hits
+            collection.update(
+                {'_id': article_Name},
+                {'$set': {'daily_views.' + str(hour): hits},
+                 '$inc': {'day_total': hits, 'month_total': hits, 'year_total': hits, }
+                },
+                True
+            )
+
+            # Calculates hourly Z Score for trend identification
+            if hits > 20:
+                daySoFar = []
+                for num in range(1, int(day)+1):
+                    # daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
+                    daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['yearly_views'][month][str(num)]) * num])
+
+                for number in range(0, int(hour)+1):
+                    # daySoFar.extend([collection.find_one({"_id": article_Name})['daily_views'][str(num)]])
+                    daySoFar.extend([int(collection.find_one({"_id": doc['_id']})['daily_views'][str(number)]) * 24 * num])
+        
+                hits = hits * 24 * num
+                number = float(len(daySoFar))
+                avg = sum(daySoFar) / number
+
+                std = sqrt(sum(((c - avg) ** 2) for c in daySoFar) / number)
+                if std == 0.0:
+                    std = 1
+
+                collection.update(
+                    # {'_id': article_Name},
+                    {'_id': doc['_id']},
+                    {'$set': {'zScore':  (hits - avg) / std}},
+                    True
+                )
+
+# update top100 table
+print("Updating of top 100 collection...")
+
+# daily update
+num = 1
+for doc in collection.find({'day_total': {'$gt': 250}}, {'day_total': 1}).sort('day_total', pymongo.DESCENDING).limit(100):
+    db.daily100.update(
+            {'_id': num},
+            {'$set': {'name': doc['_id'], 'total': str(doc['day_total'])}},
+            True
+    )
+    num += 1
+
+# monthly update
+num = 1
+for doc in collection.find({'month_total': {'$gt': 250}}, {'month_total': 1}).sort('month_total', pymongo.DESCENDING).limit(100):
+    db.monthly100.update(
+            {'_id': num},
+            {'$set': {'name': doc['_id'], 'total': str(doc['month_total'])}},
+            True
+    )
+    num += 1
+
+
+# yearly update
+num = 1
+for doc in collection.find({'year_total': {'$gt': 250}}, {'year_total': 1}).sort('year_total', pymongo.DESCENDING).limit(100):
+    db.yearly100.update(
+            {'_id': num},
+            {'$set': {'name': doc['_id'], 'total': str(doc['year_total'])}},
+            True
+    )
+    num += 1
+
+# trending update
+num = 1
+for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', pymongo.DESCENDING).limit(10):
+    db.trending100.update(
+                {'_id': num},
+                {'$set': {'name': doc['_id'], 'total': doc['daily_views']}},
+                True
+    )
+    num += 1
+
+print("The database has been successfully updated")
+
+# clean talk files
+print("Deleting old files...")
+
+# os.remove('tempTextFile.txt')
+# os.remove(file_name + ".gz")
+

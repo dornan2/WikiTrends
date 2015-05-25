@@ -293,16 +293,11 @@ for doc in collection.find({}):
 
         hits = hits * 24 * num
         number = float(len(daySoFar))
-
         avg = sum(daySoFar) / number
 
         std = sqrt(sum(((c - avg) ** 2) for c in daySoFar) / number)
         if std == 0.0:
             std = 1
-
-        print(str((hits - avg) / std))
-
-        print("Hits: " + str(hits) + " Average: " + str(avg) + " Std: " + str(std))
 
         collection.update(
             # {'_id': article_Name},
