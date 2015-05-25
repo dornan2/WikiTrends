@@ -32,22 +32,22 @@ if hour == "00":
 else:
     hour = hour.lstrip("0")
 
-# # download it
-# print("Downloading " + file_name + ".gz...")
-# with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
-#     shutil.copyfileobj(response, out_file)
-#
-# #extract it
-# print("Extracting .gz file...")
-#
-# inF = gzip.open("" + file_name + ".gz", 'rb')
-# outF = open('tempTextFile.txt', 'wb')
-#
-# for line in inF:
-#     outF.write(line)
-#
-# inF.close()
-# outF.close()
+# download it
+print("Downloading " + file_name + ".gz...")
+with urllib.request.urlopen(url) as response, open(file_name + ".gz", 'wb') as out_file:
+    shutil.copyfileobj(response, out_file)
+
+# extract it
+print("Extracting .gz file...")
+
+inF = gzip.open("" + file_name + ".gz", 'rb')
+outF = open('tempTextFile.txt', 'wb')
+
+for line in inF:
+    outF.write(line)
+
+inF.close()
+outF.close()
 
 client = MongoClient('localhost', 27017)
 db = client.wiki_database
@@ -149,7 +149,7 @@ with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
                 len(line) < 120 and
                 int(line.split()[3])/int(line.split()[2]) > 6732 and
                 "." not in line.split()[1] and
-                int(line.split()[2]) >= 1000
+                int(line.split()[2]) >= 3
         ):
             hits = int(line.split()[2])
             article_Name = urllib.parse.unquote(line.split()[1], encoding='utf-8')
@@ -253,6 +253,6 @@ print("The database has been successfully updated")
 # clean talk files
 print("Deleting old files...")
 
-# os.remove('tempTextFile.txt')
-# os.remove(file_name + ".gz")
+os.remove('tempTextFile.txt')
+os.remove(file_name + ".gz")
 
