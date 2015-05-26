@@ -23,6 +23,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'MainController'
         })
 
+        .when('/popular', {
+            templateUrl: 'views/popular.html',
+            controller: 'MainController'
+        })
+
         .when('/articles/:articleNAM/', {
             templateUrl: 'views/article.html',
             controller: 'ArticleController'
@@ -33,6 +38,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         });
 
 
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
 
 }]);

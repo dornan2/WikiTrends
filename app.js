@@ -8,6 +8,7 @@ var express  = require('express'),
     bodyParser = require('body-parser'),                // pull information from HTML POST (express4)
     methodOverride = require('method-override');        // simulate DELETE and PUT (express4)
 
+
 var app = express();
 
 /**
@@ -24,7 +25,6 @@ app.use(bodyParser.urlencoded({'extended':'true'}));            // parse applica
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
-
 
 var port = process.env.PORT || 80;
 
@@ -62,10 +62,15 @@ app.use('/api', forecastRouter);
  */
 
 
-app.get('*', function(req, res) {
-    res.sendFile('./public/index.html'); // load our public/index.html file
-});
+//app.get('/', function(req, res) {
+//    res.sendFile('./public/index.html'); // load our public/index.html file
+//});
 
+
+
+app.get('/' || '*', function(req, res){
+    res.render('./public/index.html');
+});
 
 /**
  * Listen

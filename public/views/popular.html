@@ -1,0 +1,43 @@
+<div class="jumbotron text-center">
+    <h1>Wiki<span class="label label-info">Trends</span></h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><span class="label label-default">Daily Popularity</span></h1>
+        <div class="scrollArea">
+            <div ng-repeat="dailyRank in dailyList | orderBy: '_id'">
+                <span>
+                    {{ dailyRank._id }}.
+                    <a href="/#articles/{{dailyRank.name}}"> {{ dailyRank.name }}</a>
+                    <a href="http://en.wikipedia.org/wiki/{{dailyRank.name}}"> <img src="images/wiki.png" alt="Mountain View" style="width:12px;height:12px"> </a>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <h1><span class="label label-default">Monthly Popularity</span></h1>
+        <div class="scrollArea">
+            <div ng-repeat="monthlyRank in MonthlyList | orderBy: '_id'">
+                <span>
+                    {{ monthlyRank._id }}.
+                    <a href="/#articles/{{monthlyRank.name}}"> {{ monthlyRank.name }}</a>
+                    <a href="http://en.wikipedia.org/wiki/{{monthlyRank.name}}"> <img src="images/wiki.png" alt="Mountain View" style="width:12px;height:12px"> </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h1><span class="label label-default">Yearly Popularity</span></h1>
+        <div class="scrollArea">
+            <div ng-repeat="yearlyRank in YearlyList | orderBy: '_id'">
+                <span>
+                    {{ yearlyRank._id }}.
+                    <a href="/#articles/{{yearlyRank.name}}"> {{ yearlyRank.name }}</a>
+                    <a href="http://en.wikipedia.org/wiki/{{yearlyRank.name}}"> <img src="images/wiki.png" alt="Mountain View" style="width:12px;height:12px"> </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

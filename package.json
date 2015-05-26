@@ -27,6 +27,7 @@
   "homepage": "https://github.com/dornan2/WikiTrends",
   "dependencies": {
     "body-parser": "1.12.3",
+    "connect": "^3.3.5",
     "error-handler": "1.0.0",
     "express": "4.12.3",
     "method-override": "2.3.2",
