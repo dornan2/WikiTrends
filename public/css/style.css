@@ -3,11 +3,6 @@
     overflow: auto;
 }
 
-/*.popular {*/
-    /*margin-bottom: 52px;*/
-/*}*/
-
-
 #footer {
     margin-top: 52px;
     background-color: #eee;
@@ -16,5 +11,5 @@
     clear:both;
     text-align:center;
     padding:10px;
+    margin-bottom: 2px;
 }
-
