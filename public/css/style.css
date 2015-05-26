@@ -13,3 +13,13 @@
     padding:10px;
     margin-bottom: 2px;
 }
+
+
+.search {
+    background-color: #000000;
+    color:#000000;
+}
+
+.beside {
+    float:left;
+}

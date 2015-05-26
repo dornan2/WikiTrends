@@ -6,7 +6,7 @@
 </div>
 
 <!-- FORM TO CREATE TODOS -->
-<div id="todo-form" class="row">
+<div id="todo-form" class="row ">
     <div class="col-sm-8 col-sm-offset-2 text-center">
         <form>
 
@@ -14,10 +14,10 @@
 
                 <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
                 <input type="text" class="form-control input-lg text-center" placeholder="Search for any article here" ng-model="searchQuery">
-            </div>
 
-            <!-- createToDo() WILL CREATE NEW TODOS -->
-            <button type="submit" class="btn btn-primary btn-lg" ng-click="search(searchQuery)">Search</button>
+                <!-- createToDo() WILL CREATE NEW TODOS -->
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="search(searchQuery)">Search</button>
+            </div>
         </form>
     </div>
 </div>
@@ -25,10 +25,6 @@
 <h1><span class="label label-default">What's currently trending</span></h1>
 <nvd3 options="options" data="data"></nvd3>
 
-
-<!--<h1>TEST DATA: {{data}}</h1>-->
-
-<!--<h1>TEST RARA: {{RARA}}</h1>-->
 
 <!-- TODO LIST -->
 <div id="todo-list" class="row">
