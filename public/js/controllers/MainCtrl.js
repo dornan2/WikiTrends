@@ -169,27 +169,12 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
     }
 
     var onUserComplete = function (response) {
-        $scope.user = response.data;
 
-        if(response.data == null )
-            alert("Page does not exist");
-        else
-            $window.location.href = '/articles/'+$scope.user._id;
-
-        console.log($scope.user);
+        $window.location.href = '#/articles/'+response;
     };
 
     $scope.search = function(name){
-        List.getData("api/articles/" + name)
-            //.then(onUserComplete);
-
-
-            .success(function (custs) {
-                alert(custs);
-            })
-            .error(function () {
-                alert("Page does not exist");
-            });
+        onUserComplete(name);
     };
 
 

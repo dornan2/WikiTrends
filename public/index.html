@@ -47,23 +47,24 @@
             </div>
 
             <ul class="nav navbar-nav">
-                <li><a href="/#forecast/">Forecasting</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
                 <li><a href="/#popular/">Popular</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li><a href="/#forecast/">Forecasting</a></li>
             </ul>
         </nav>
 
         <!-- ANGULAR DYNAMIC CONTENT -->
         <div ng-view></div>
+        <div id="footer">
+            <a href="https://github.com/dornan2/WikiTrends">GitHub</a>
+            <a>.</a>
+            <a href="/#api/">API</a>
+            <a>.</a>
+            <a href="/#about/">About</a>
+        </div>
+    </div>
 
-    </div>
-    <div id="footer">
-        <a href="https://github.com/dornan2/WikiTrends">GitHub</a>
-        <a>.</a>
-        <a href="/#api/">API</a>
-        <a>.</a>
-        <a href="/#about/">About</a>
-    </div>
 </body>
 </html>

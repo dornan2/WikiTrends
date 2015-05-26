@@ -3,11 +3,18 @@
     overflow: auto;
 }
 
+/*.popular {*/
+    /*margin-bottom: 52px;*/
+/*}*/
+
 
 #footer {
-    background-color:#add8e6;
+    margin-top: 52px;
+    background-color: #eee;
+    border-radius: 5px;
     color:white;
     clear:both;
     text-align:center;
-    padding:5px;
+    padding:10px;
 }
+
