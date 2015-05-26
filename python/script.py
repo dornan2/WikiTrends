@@ -85,6 +85,7 @@ if hour == "0" and day != "1":
             {'$set': {
                 'yearly_views.'+str(month.lstrip("0"))+"."+str(int(day)-1): collection.find_one({"_id": doc['_id']})['day_total'],
                 'day_total': 0,
+                'zScore': 0.0,
                 'daily_views': days_views
                 }
             },
@@ -178,7 +179,7 @@ with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
             )
 
             # Calculates hourly Z Score for trend identification
-            if hits > 20:
+            if hits > 100:
                 daySoFar = []
                 doc = collection.find_one({"_id": article_Name})['yearly_views'][month]
                 for num in range(1, int(day)+1):
