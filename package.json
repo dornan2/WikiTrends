@@ -30,10 +30,17 @@
     "connect": "^3.3.5",
     "error-handler": "1.0.0",
     "express": "4.12.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jasmine": "^0.4.1",
+    "jasmine": "^2.3.1",
     "method-override": "2.3.2",
     "mongoose": "4.0.1",
     "morgan": "1.5.2",
     "node-gyp": "1.0.3",
     "serve-favicon": "^2.2.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-jasmine": "^0.4.2",
+    "qunitjs": "^1.18.0"
   }
 }

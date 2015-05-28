@@ -16,78 +16,35 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
         List.getData('api/trending100/')
             .success(function (custs) {
                 $scope.trends = custs;
-                for(x = 0; x < 10; x++){
+                for(x = 0; x < 5; x++){
                     values[x]=[];
                     for (i = 0 ; i < 24; i++) {
                         values[x].push({"x":i, "y":custs[x].total[i]});
                     }
                 }
-                $scope.RARA = "it works!!";
 
                 $scope.data = [
                     {
-                        "key" : custs[0].name
-                        ,
+                        "key" : custs[0].name,
                         "values" : values[0]
-                        //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
-                    }
-                    ,
+                    },
                     {
-                        "key" : custs[1].name
-                        ,
+                        "key" : custs[1].name,
                         "values" : values[1]
-                        //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
                     },
                     {
-                        "key" : custs[2].name
-                        ,
+                        "key" : custs[2].name,
                         "values" : values[2]
-                        //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
                     },
                     {
-                        "key" : custs[3].name
-                        ,
+                        "key" : custs[3].name,
                         "values" : values[3]
-                        //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
-                    }
-                    ,
+                    },
                     {
-                        "key" : custs[4].name
-                        ,
+                        "key" : custs[4].name,
                         "values" : values[4]
-                        //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
                     }
-                    //,
-                    //{
-                    //    "key" : custs[5].name
-                    //    ,
-                    //    "values" : custs[5].total
-                    //    //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
-                    //},
-                    //{
-                    //    "key" : custs[6].name
-                    //    ,
-                    //    "values" : values[6]
-                    //    //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
-                    //},
-                    //{
-                    //    "key" : custs[7].name
-                    //    ,
-                    //    "values" : values[7]
-                    //    //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
-                    //},
-                    //{
-                    //    "key" : custs[8].name
-                    //    ,
-                    //    "values" : values[8]
-                    //    //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
-                    //},
-                    //{
-                    //    "key" : custs[9].name
-                    //    ,
-                    //    "values" : values[9]
-                    //    //"values" : [{"x":1, "y":1},{"x":2, "y":12},{"x":3, "y":32},{"x":4, "y":22},{"x":5, "y":2},{"x":6, "y":12},{"x":7, "y":32},{"x":8, "y":22},{"x":9, "y":2},{"x":10, "y":12},{"x":11, "y":32},{"x":12, "y":22},{"x":13, "y":1},{"x":14, "y":12},{"x":15, "y":32},{"x":16, "y":22},{"x":17, "y":2},{"x":18, "y":12},{"x":19, "y":32},{"x":20, "y":22},{"x":21, "y":2},{"x":22, "y":12},{"x":23, "y":32}]
-                    //}
+
 
                 ]
 
@@ -133,23 +90,13 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
             })
     }
 
-    //function getTrendsList(apiURL) {
-    //    List.getData(apiURL)
-    //        .success(function (custs) {
-    //            $scope.trends = custs;
-    //        })
-    //        .error(function (error) {
-    //            $scope.status = 'Unable to load customer data: ' + error.message;
-    //        });
-    //}
-
     function getDailyList(apiURL) {
         List.getData(apiURL)
             .success(function (custs) {
                 $scope.dailyList = custs;
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load article data: ' + error.message;
             });
     }
 
@@ -159,7 +106,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                 $scope.MonthlyList = custs;
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load article data: ' + error.message;
             });
     }
 
@@ -175,7 +122,17 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
 
     var onUserComplete = function (response) {
 
-        $window.location.href = '#/articles/'+response;
+        List.getData('/api/articles/'+response)
+            .success(function (custs) {
+                if(custs == null)
+                    alert("Please enter the name of a valid article");
+                else
+                    $window.location.href = '#/articles/'+response;
+            })
+            .error(function (error) {
+
+                alert("Error");
+            });
     };
 
     $scope.search = function(name){
