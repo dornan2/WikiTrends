@@ -305,18 +305,39 @@ top = db.top100
 #             {'$set': {'zScore':  (hits - avg) / std}},
 #             True
 #         )
-
+#
+# from math import sqrt
+#
+# def zscore(obs, pop):
+#
+#     number = float(len(pop))
+#
+#     avg = sum(pop) / number
+#
+#     std = sqrt(sum(((c - avg) ** 2) for c in pop) / number)
+#
+#     return (obs - avg) / std
 #
 #
-#
-# print("drugs")
-print(collection.find_one({"_id": 'Italian_Social_Republic'})['daily_views'])
+# print(str(zscore(12, [2, 4, 4, 4, 5, 5, 7, 9])))
 
-doc = collection.find_one({"_id": 'Italian_Social_Republic'})['daily_views']
+if hits > 100:
+        daySoFar = []
+        doc = collection.find_one({"_id": article_Name})['yearly_views'][month]
 
-print(int(doc['11']) * 24)
+        step = 1/(int(hour) + int(day))
 
-num = 2
-hits =3
-hits = hits * 24 * num
-print(hits)
+        for num in range(1, int(day)+1):
+            daySoFar.extend([int(doc[str(num)]) * 1-(step*num)])
+
+        doc = collection.find_one({"_id": article_Name})['daily_views']
+        for number in range(0, int(hour)+1):
+            daySoFar.extend([int(doc[str(number)]) * (24 * 1-(step*(num+number)))])
+
+        hits = (hits * 24) * num
+        number = float(len(daySoFar))
+        avg = sum(daySoFar) / number
+
+        std = sqrt(sum(((c - avg) ** 2) for c in daySoFar) / number)
+        if std == 0.0:
+            std = 1
