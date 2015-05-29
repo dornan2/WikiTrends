@@ -320,24 +320,38 @@ top = db.top100
 #
 #
 # print(str(zscore(12, [2, 4, 4, 4, 5, 5, 7, 9])))
+#
+# if hits > 100:
+#         daySoFar = []
+#         doc = collection.find_one({"_id": article_Name})['yearly_views'][month]
+#
+#         step = 1/(int(hour) + int(day))
+#
+#         for num in range(1, int(day)+1):
+#             daySoFar.extend([int(doc[str(num)]) * 1-(step*num)])
+#
+#         doc = collection.find_one({"_id": article_Name})['daily_views']
+#         for number in range(0, int(hour)+1):
+#             daySoFar.extend([int(doc[str(number)]) * (24 * 1-(step*(num+number)))])
+#
+#         hits = (hits * 24) * num
+#         number = float(len(daySoFar))
+#         avg = sum(daySoFar) / number
+#
+#         std = sqrt(sum(((c - avg) ** 2) for c in daySoFar) / number)
+#         if std == 0.0:
+#             std = 1
 
-if hits > 100:
-        daySoFar = []
-        doc = collection.find_one({"_id": article_Name})['yearly_views'][month]
 
-        step = 1/(int(hour) + int(day))
-
-        for num in range(1, int(day)+1):
-            daySoFar.extend([int(doc[str(num)]) * 1-(step*num)])
-
-        doc = collection.find_one({"_id": article_Name})['daily_views']
-        for number in range(0, int(hour)+1):
-            daySoFar.extend([int(doc[str(number)]) * (24 * 1-(step*(num+number)))])
-
-        hits = (hits * 24) * num
-        number = float(len(daySoFar))
-        avg = sum(daySoFar) / number
-
-        std = sqrt(sum(((c - avg) ** 2) for c in daySoFar) / number)
-        if std == 0.0:
-            std = 1
+# trending update
+num = 1
+for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', pymongo.DESCENDING).limit(10):
+# for doc in collection.find({"_id": "Italian_Social_Republic"}).sort('zScore', pymongo.DESCENDING).limit(10):
+# for doc in collection.find().sort('zScore', pymongo.DESCENDING).limit(10):
+    # db.trending100.update(
+    #             {'_id': num},
+    #             {'$set': {'name': doc['_id'], 'total': doc['daily_views']}},
+    #             True
+    # )
+    # num += 1
+    print(doc['daily_views'])

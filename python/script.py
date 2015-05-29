@@ -179,7 +179,7 @@ with io.open('tempTextFile.txt', 'r', encoding='utf-8') as infile:
             )
 
             # Calculates hourly Z Score for trend identification
-            if hits > 100:
+            if hits > 50:
                 daySoFar = []
                 doc = collection.find_one({"_id": article_Name})['yearly_views'][month]
 
@@ -242,7 +242,7 @@ for doc in collection.find({'year_total': {'$gt': 250}}, {'year_total': 1}).sort
 
 # trending update
 num = 1
-for doc in collection.find({}, {'zScore': 1, 'daily_views': 1}).sort('zScore', pymongo.DESCENDING).limit(10):
+for doc in collection.find().sort('zScore', pymongo.DESCENDING).limit(10):
     db.trending100.update(
                 {'_id': num},
                 {'$set': {'name': doc['_id'], 'total': doc['daily_views']}},
