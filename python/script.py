@@ -242,7 +242,7 @@ for doc in collection.find({'year_total': {'$gt': 250}}, {'year_total': 1}).sort
 
 # trending update
 num = 1
-for doc in collection.find().sort('zScore', pymongo.DESCENDING).limit(10):
+for doc in collection.find().sort('zScore', pymongo.DESCENDING).limit(100):
     db.trending100.update(
                 {'_id': num},
                 {'$set': {'name': doc['_id'], 'total': doc['daily_views']}},
