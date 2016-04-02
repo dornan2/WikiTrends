@@ -15,6 +15,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
         var values = [];
         List.getData('api/trending100/')
             .success(function (custs) {
+
                 $scope.trends = custs;
                 for(x = 0; x < 5; x++){
                     values[x]=[];
@@ -44,8 +45,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                         "key" : custs[4].name,
                         "values" : values[4]
                     }
-
-
                 ]
 
                 $scope.options = {
@@ -75,10 +74,6 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                         yAxis: {
                             axisLabel: 'Previous 24 hrs',
                             tickFormat: function(d){
-
-                                //return d3.time.format('%x')(new Date(2015, 1, d, 0, 0, 0, 0))
-                                //var date = new Date(year, 0); // initialize a date in `year-01-01`
-                                //return new Date(date.setDate(day))
 
                                 return d;
                             }

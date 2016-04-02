@@ -26,7 +26,7 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 
 /**
  * Define models
@@ -60,12 +60,6 @@ app.use('/api', forecastRouter);
 /**
  * Application
  */
-
-
-//app.get('/', function(req, res) {
-//    res.sendFile('./public/index.html'); // load our public/index.html file
-//});
-
 
 
 app.get('/' || '*', function(req, res){

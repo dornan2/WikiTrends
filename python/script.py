@@ -257,4 +257,3 @@ print("Deleting old files...")
 
 os.remove('tempTextFile.txt')
 os.remove(file_name + ".gz")
-

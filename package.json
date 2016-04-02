@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "grunt-contrib-jasmine": "^0.4.2",
+    "gulp": "^3.9.0",
     "qunitjs": "^1.18.0"
   }
 }
