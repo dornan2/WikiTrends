@@ -14,7 +14,6 @@ angular.module('ArticleCtrl', []).controller('ArticleController', function($scop
                 for(i = 1; i < 13; i++){
                     for(x = 1; x < Object.keys(year[i]).length+1; x++){
                         arr.push({"x":counter, "y":year[i][x]});
-                        //arr.push({"x":counter, "y":"Month:  " + i + " , " + "Date: " + x});
                         counter++;
                     }
                 }
@@ -69,7 +68,7 @@ angular.module('ArticleCtrl', []).controller('ArticleController', function($scop
 
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load article data: ' + error.message;
             });
     }
 

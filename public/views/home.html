@@ -26,11 +26,11 @@
 <nvd3 options="options" data="data"></nvd3>
 
 
-<!-- TODO LIST -->
+<!-- Article LIST -->
 <div id="todo-list" class="row">
     <div class="col-sm-4 col-sm-offset-4">
 
-        <!-- LOOP OVER THE TODOS IN $scope.todos -->
+        <!-- LOOP OVER THE Articles IN $scope.trends -->
         <div ng-repeat="trend in trends | orderBy: '_id' | limitTo:10">
             <span>
                 {{ trend._id }}.

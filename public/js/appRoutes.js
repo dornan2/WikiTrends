@@ -37,7 +37,4 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             redirectTo: '/'
         });
 
-
-    //$locationProvider.html5Mode(true);
-
 }]);

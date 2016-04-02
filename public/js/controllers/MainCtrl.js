@@ -101,7 +101,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                 $scope.MonthlyList = custs;
             })
             .error(function (error) {
-                $scope.status = 'Unable to load article data: ' + error.message;
+                $scope.status = 'Unable to load articles data: ' + error.message;
             });
     }
 
@@ -111,7 +111,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope,List
                 $scope.YearlyList = custs;
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load articles data: ' + error.message;
             });
     }
 
